@@ -12,6 +12,11 @@
 		3762F6E02237E39E000CED15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3762F6DF2237E39E000CED15 /* Assets.xcassets */; };
 		3762F6E32237E39E000CED15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3762F6E12237E39E000CED15 /* LaunchScreen.storyboard */; };
 		3762F6EE2237E39F000CED15 /* KcalEatenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3762F6ED2237E39F000CED15 /* KcalEatenTests.swift */; };
+		3762F6FD2237E9E7000CED15 /* OpenFoodFactService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3762F6FC2237E9E7000CED15 /* OpenFoodFactService.swift */; };
+		3762F6FF2237EE4B000CED15 /* OpenFoodFactDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3762F6FE2237EE4B000CED15 /* OpenFoodFactDecodable.swift */; };
+		3762F70322380906000CED15 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3762F70222380906000CED15 /* CameraController.swift */; };
+		3762F7082238401E000CED15 /* KcalEaten.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3762F7062238401E000CED15 /* KcalEaten.xcdatamodeld */; };
+		3762F70A223841DC000CED15 /* ProductObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3762F709223841DC000CED15 /* ProductObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +39,11 @@
 		3762F6E92237E39F000CED15 /* KcalEatenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KcalEatenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3762F6ED2237E39F000CED15 /* KcalEatenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KcalEatenTests.swift; sourceTree = "<group>"; };
 		3762F6EF2237E39F000CED15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3762F6FC2237E9E7000CED15 /* OpenFoodFactService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenFoodFactService.swift; sourceTree = "<group>"; };
+		3762F6FE2237EE4B000CED15 /* OpenFoodFactDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenFoodFactDecodable.swift; sourceTree = "<group>"; };
+		3762F70222380906000CED15 /* CameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
+		3762F7072238401E000CED15 /* KcalEaten.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KcalEaten.xcdatamodel; sourceTree = "<group>"; };
+		3762F709223841DC000CED15 /* ProductObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +124,8 @@
 		3762F6FA2237E4AD000CED15 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				378E79AC2238537400A41E11 /* Services */,
+				378E79AD2238537C00A41E11 /* CoreData */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -121,8 +133,27 @@
 		3762F6FB2237E4B2000CED15 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				3762F70222380906000CED15 /* CameraController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		378E79AC2238537400A41E11 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3762F6FC2237E9E7000CED15 /* OpenFoodFactService.swift */,
+				3762F6FE2237EE4B000CED15 /* OpenFoodFactDecodable.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		378E79AD2238537C00A41E11 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				3762F709223841DC000CED15 /* ProductObject.swift */,
+				3762F7062238401E000CED15 /* KcalEaten.xcdatamodeld */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,6 +258,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3762F6D92237E39D000CED15 /* AppDelegate.swift in Sources */,
+				3762F6FF2237EE4B000CED15 /* OpenFoodFactDecodable.swift in Sources */,
+				3762F7082238401E000CED15 /* KcalEaten.xcdatamodeld in Sources */,
+				3762F70322380906000CED15 /* CameraController.swift in Sources */,
+				3762F6FD2237E9E7000CED15 /* OpenFoodFactService.swift in Sources */,
+				3762F70A223841DC000CED15 /* ProductObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,6 +529,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3762F7062238401E000CED15 /* KcalEaten.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3762F7072238401E000CED15 /* KcalEaten.xcdatamodel */,
+			);
+			currentVersion = 3762F7072238401E000CED15 /* KcalEaten.xcdatamodel */;
+			path = KcalEaten.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3762F6CD2237E39D000CED15 /* Project object */;
 }
