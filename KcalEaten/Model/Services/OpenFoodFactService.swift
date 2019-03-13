@@ -17,33 +17,37 @@ class OpenFoodFactService {
         self._session = session
     }
 
-    func getProduct(from barCode: String, callback: @escaping (Bool, ProductObject?, String?) -> Void) {
-print("test")
+    func getProduct(from barCode: String, callback: @escaping (Bool, ProductObject?, ApiError?) -> Void) {
 
         let urlString = "https://fr.openfoodfacts.org/api/v0/produit/\(barCode).json"
 
         guard let url = URL(string: urlString) else {
-            callback(false, nil, "OpenFoodFactService: Failed to create Url")
+            callback(false, nil, ApiError.failedToCreateUrl)
             return
         }
 
         _task?.cancel()
         _task = _session.dataTask(with: url) { (data, response, error) in
             DispatchQueue.main.async {
-            //Check if data, no error and httpResponseCode is ok
-            guard let data = data, error == nil,
-                let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                    callback(false, nil, "OpenFoodFactService: No data")
+                //Check if data, no error and httpResponseCode is ok
+                guard let data = data, error == nil,
+                    let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                        callback(false, nil, ApiError.noData)
+                        return
+                }
+
+                //Decode jsonFiles
+                guard let responseJSON = try? JSONDecoder().decode(OpenFoodFactDecodable.self, from: data) else {
+                    callback(false, nil, ApiError.failedToDecode)
                     return
-            }
+                }
 
-            //Decode jsonFiles
-            guard let responseJSON = try? JSONDecoder().decode(OpenFoodFactDecodable.self, from: data) else {
-                callback(false, nil, "OpenFoodFactService: Failed to decode")
-                return
-            }
+                guard let product = self.parseData(from: responseJSON) else {
+                    callback(false, nil, ApiError.noProductFound)
+                    return
+                }
 
-            callback(true, self.parseData(from: responseJSON), nil)
+                callback(true, product, nil)
             }
         }
         _task?.resume()

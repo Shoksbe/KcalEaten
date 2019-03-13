@@ -12,7 +12,7 @@ import XCTest
 class OpenFoodFactServiceTest: XCTestCase {
 
     // MARK: - Service
-    func testGetCurrencyShouldPostFailedCallback() {
+    func testGetProductShouldPostFailedCallback() {
         // Given
         let openFoodFactService = OpenFoodFactService(
             session: URLSessionFake(data: nil, response: nil, error: FakeResponseData.error))
@@ -24,13 +24,14 @@ class OpenFoodFactServiceTest: XCTestCase {
             XCTAssertFalse(success)
             XCTAssertNil(product)
             XCTAssertNotNil(error)
+            XCTAssertEqual(error!, ApiError.noData)
             expectation.fulfill()
         }
 
         wait(for: [expectation], timeout: 0.01)
     }
 
-    func testGetCurrencyShouldPostFailedCallbackIfNoData() {
+    func testGetProductShouldPostFailedCallbackIfNoData() {
         // Given
         let openFoodFactService = OpenFoodFactService(
             session: URLSessionFake(data: nil, response: nil, error: nil))
@@ -42,16 +43,17 @@ class OpenFoodFactServiceTest: XCTestCase {
             XCTAssertFalse(success)
             XCTAssertNil(product)
             XCTAssertNotNil(error)
+            XCTAssertEqual(error!, ApiError.noData)
             expectation.fulfill()
         }
 
         wait(for: [expectation], timeout: 0.01)
     }
 
-    func testGetCurrencyShouldPostFailedCallbackIfIncorrectResponse() {
+    func testGetProductShouldPostFailedCallbackIfIncorrectResponse() {
         // Given
         let openFoodFactService = OpenFoodFactService(
-            session: URLSessionFake(data: FakeResponseData.openFoodFact, response: FakeResponseData.responseKO, error: nil))
+            session: URLSessionFake(data: FakeResponseData.openFoodFactBarCodeOK, response: FakeResponseData.responseKO, error: nil))
 
         // When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
@@ -60,6 +62,7 @@ class OpenFoodFactServiceTest: XCTestCase {
             XCTAssertFalse(success)
             XCTAssertNil(product)
             XCTAssertNotNil(error)
+            XCTAssertEqual(error!, ApiError.noData)
             expectation.fulfill()
         }
 
@@ -67,7 +70,7 @@ class OpenFoodFactServiceTest: XCTestCase {
         wait(for: [expectation], timeout: 0.01)
     }
 
-    func testGetCurrencyShouldPostFailedCallbackIfIncorrectData() {
+    func testGetProductShouldPostFailedCallbackIfIncorrectData() {
         // Given
         let openFoodFactService = OpenFoodFactService(
             session: URLSessionFake(data: FakeResponseData.incorrectData, response: FakeResponseData.responseOK, error: nil))
@@ -79,6 +82,7 @@ class OpenFoodFactServiceTest: XCTestCase {
             XCTAssertFalse(success)
             XCTAssertNil(product)
             XCTAssertNotNil(error)
+            XCTAssertEqual(error!, ApiError.failedToDecode)
             expectation.fulfill()
         }
 
@@ -86,10 +90,11 @@ class OpenFoodFactServiceTest: XCTestCase {
         wait(for: [expectation], timeout: 0.01)
     }
 
-    func testGetCurrencyShouldPostSuccessCallbackIfNoErrorAndCorrectData() {
+
+    func testGetProductShouldPostSuccessCallbackIfNoErrorAndCorrectData() {
         // Given
         let openFoodFactService = OpenFoodFactService(
-            session: URLSessionFake(data: FakeResponseData.openFoodFact, response: FakeResponseData.responseOK, error: nil))
+            session: URLSessionFake(data: FakeResponseData.openFoodFactBarCodeOK, response: FakeResponseData.responseOK, error: nil))
 
         // When
         let expectation = XCTestExpectation(description: "Wait for queue change.")
@@ -109,4 +114,6 @@ class OpenFoodFactServiceTest: XCTestCase {
 
         wait(for: [expectation], timeout: 0.01)
     }
+
+
 }

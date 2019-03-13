@@ -17,9 +17,10 @@
 		3762F7082238401E000CED15 /* KcalEaten.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3762F7062238401E000CED15 /* KcalEaten.xcdatamodeld */; };
 		3762F70A223841DC000CED15 /* ProductObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3762F709223841DC000CED15 /* ProductObject.swift */; };
 		3762F70C2238ECC3000CED15 /* OpenFoodFactServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3762F70B2238ECC3000CED15 /* OpenFoodFactServiceTest.swift */; };
-		3762F70E2238ED5E000CED15 /* OpenFoodFact.json in Resources */ = {isa = PBXBuildFile; fileRef = 3762F70D2238ED5E000CED15 /* OpenFoodFact.json */; };
+		3762F70E2238ED5E000CED15 /* OpenFoodFactBarCodeOK.json in Resources */ = {isa = PBXBuildFile; fileRef = 3762F70D2238ED5E000CED15 /* OpenFoodFactBarCodeOK.json */; };
 		3762F7102238ED72000CED15 /* FakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3762F70F2238ED72000CED15 /* FakeResponseData.swift */; };
 		3762F7122238EFD8000CED15 /* UrlSessionFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3762F7112238EFD8000CED15 /* UrlSessionFake.swift */; };
+		3762F7152238FB2C000CED15 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3762F7142238FB2C000CED15 /* ApiError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,9 +48,10 @@
 		3762F7072238401E000CED15 /* KcalEaten.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KcalEaten.xcdatamodel; sourceTree = "<group>"; };
 		3762F709223841DC000CED15 /* ProductObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductObject.swift; sourceTree = "<group>"; };
 		3762F70B2238ECC3000CED15 /* OpenFoodFactServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenFoodFactServiceTest.swift; sourceTree = "<group>"; };
-		3762F70D2238ED5E000CED15 /* OpenFoodFact.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = OpenFoodFact.json; sourceTree = "<group>"; };
+		3762F70D2238ED5E000CED15 /* OpenFoodFactBarCodeOK.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = OpenFoodFactBarCodeOK.json; sourceTree = "<group>"; };
 		3762F70F2238ED72000CED15 /* FakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponseData.swift; sourceTree = "<group>"; };
 		3762F7112238EFD8000CED15 /* UrlSessionFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlSessionFake.swift; sourceTree = "<group>"; };
+		3762F7142238FB2C000CED15 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 			children = (
 				378E79AC2238537400A41E11 /* Services */,
 				378E79AD2238537C00A41E11 /* CoreData */,
+				3762F7142238FB2C000CED15 /* ApiError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -150,7 +153,7 @@
 			children = (
 				3762F70F2238ED72000CED15 /* FakeResponseData.swift */,
 				3762F7112238EFD8000CED15 /* UrlSessionFake.swift */,
-				3762F70D2238ED5E000CED15 /* OpenFoodFact.json */,
+				3762F70D2238ED5E000CED15 /* OpenFoodFactBarCodeOK.json */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -265,7 +268,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3762F70E2238ED5E000CED15 /* OpenFoodFact.json in Resources */,
+				3762F70E2238ED5E000CED15 /* OpenFoodFactBarCodeOK.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +279,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3762F7152238FB2C000CED15 /* ApiError.swift in Sources */,
 				3762F6D92237E39D000CED15 /* AppDelegate.swift in Sources */,
 				3762F6FF2237EE4B000CED15 /* OpenFoodFactDecodable.swift in Sources */,
 				3762F7082238401E000CED15 /* KcalEaten.xcdatamodeld in Sources */,

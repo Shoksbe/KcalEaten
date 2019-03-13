@@ -15,9 +15,9 @@ class FakeResponseData {
     //------------------------
 
     //OpenFoodFact data
-    static var openFoodFact: Data? {
+    static var openFoodFactBarCodeOK: Data? {
         let bundle = Bundle(for: FakeResponseData.self)
-        let url = bundle.url(forResource: "OpenFoodFact", withExtension: "json")!
+        let url = bundle.url(forResource: "OpenFoodFactBarCodeOK", withExtension: "json")!
         return try! Data(contentsOf: url)
     }
 
