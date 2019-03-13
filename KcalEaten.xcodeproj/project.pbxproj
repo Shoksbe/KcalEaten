@@ -11,12 +11,15 @@
 		3762F6DE2237E39D000CED15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3762F6DC2237E39D000CED15 /* Main.storyboard */; };
 		3762F6E02237E39E000CED15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3762F6DF2237E39E000CED15 /* Assets.xcassets */; };
 		3762F6E32237E39E000CED15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3762F6E12237E39E000CED15 /* LaunchScreen.storyboard */; };
-		3762F6EE2237E39F000CED15 /* KcalEatenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3762F6ED2237E39F000CED15 /* KcalEatenTests.swift */; };
 		3762F6FD2237E9E7000CED15 /* OpenFoodFactService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3762F6FC2237E9E7000CED15 /* OpenFoodFactService.swift */; };
 		3762F6FF2237EE4B000CED15 /* OpenFoodFactDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3762F6FE2237EE4B000CED15 /* OpenFoodFactDecodable.swift */; };
 		3762F70322380906000CED15 /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3762F70222380906000CED15 /* CameraController.swift */; };
 		3762F7082238401E000CED15 /* KcalEaten.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3762F7062238401E000CED15 /* KcalEaten.xcdatamodeld */; };
 		3762F70A223841DC000CED15 /* ProductObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3762F709223841DC000CED15 /* ProductObject.swift */; };
+		3762F70C2238ECC3000CED15 /* OpenFoodFactServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3762F70B2238ECC3000CED15 /* OpenFoodFactServiceTest.swift */; };
+		3762F70E2238ED5E000CED15 /* OpenFoodFact.json in Resources */ = {isa = PBXBuildFile; fileRef = 3762F70D2238ED5E000CED15 /* OpenFoodFact.json */; };
+		3762F7102238ED72000CED15 /* FakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3762F70F2238ED72000CED15 /* FakeResponseData.swift */; };
+		3762F7122238EFD8000CED15 /* UrlSessionFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3762F7112238EFD8000CED15 /* UrlSessionFake.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,13 +40,16 @@
 		3762F6E22237E39E000CED15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3762F6E42237E39E000CED15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3762F6E92237E39F000CED15 /* KcalEatenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KcalEatenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3762F6ED2237E39F000CED15 /* KcalEatenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KcalEatenTests.swift; sourceTree = "<group>"; };
 		3762F6EF2237E39F000CED15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3762F6FC2237E9E7000CED15 /* OpenFoodFactService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenFoodFactService.swift; sourceTree = "<group>"; };
 		3762F6FE2237EE4B000CED15 /* OpenFoodFactDecodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenFoodFactDecodable.swift; sourceTree = "<group>"; };
 		3762F70222380906000CED15 /* CameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 		3762F7072238401E000CED15 /* KcalEaten.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KcalEaten.xcdatamodel; sourceTree = "<group>"; };
 		3762F709223841DC000CED15 /* ProductObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductObject.swift; sourceTree = "<group>"; };
+		3762F70B2238ECC3000CED15 /* OpenFoodFactServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenFoodFactServiceTest.swift; sourceTree = "<group>"; };
+		3762F70D2238ED5E000CED15 /* OpenFoodFact.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = OpenFoodFact.json; sourceTree = "<group>"; };
+		3762F70F2238ED72000CED15 /* FakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponseData.swift; sourceTree = "<group>"; };
+		3762F7112238EFD8000CED15 /* UrlSessionFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlSessionFake.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,8 +102,11 @@
 		3762F6EC2237E39F000CED15 /* KcalEatenTests */ = {
 			isa = PBXGroup;
 			children = (
-				3762F6ED2237E39F000CED15 /* KcalEatenTests.swift */,
 				3762F6EF2237E39F000CED15 /* Info.plist */,
+				3762F70B2238ECC3000CED15 /* OpenFoodFactServiceTest.swift */,
+				3762F70F2238ED72000CED15 /* FakeResponseData.swift */,
+				3762F7112238EFD8000CED15 /* UrlSessionFake.swift */,
+				3762F70D2238ED5E000CED15 /* OpenFoodFact.json */,
 			);
 			path = KcalEatenTests;
 			sourceTree = "<group>";
@@ -209,6 +218,7 @@
 					};
 					3762F6E82237E39F000CED15 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 						TestTargetID = 3762F6D42237E39D000CED15;
 					};
 				};
@@ -247,6 +257,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3762F70E2238ED5E000CED15 /* OpenFoodFact.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,7 +281,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3762F6EE2237E39F000CED15 /* KcalEatenTests.swift in Sources */,
+				3762F70C2238ECC3000CED15 /* OpenFoodFactServiceTest.swift in Sources */,
+				3762F7102238ED72000CED15 /* FakeResponseData.swift in Sources */,
+				3762F7122238EFD8000CED15 /* UrlSessionFake.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,6 +474,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F8XBDV79J6;
 				INFOPLIST_FILE = KcalEatenTests/Info.plist;
@@ -471,6 +485,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gregorydeknyf.KcalEatenTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KcalEaten.app/KcalEaten";
@@ -482,6 +497,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F8XBDV79J6;
 				INFOPLIST_FILE = KcalEatenTests/Info.plist;
