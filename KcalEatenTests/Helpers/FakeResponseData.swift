@@ -8,7 +8,7 @@
 
 import Foundation
 
-class FakeResponData {
+class FakeResponseData {
 
     //------------------------
     //MARK: - Data
@@ -16,7 +16,7 @@ class FakeResponData {
 
     //OpenFoodFact data
     static var openFoodFact: Data? {
-        let bundle = Bundle(for: FakeResponData.self)
+        let bundle = Bundle(for: FakeResponseData.self)
         let url = bundle.url(forResource: "OpenFoodFact", withExtension: "json")!
         return try! Data(contentsOf: url)
     }
