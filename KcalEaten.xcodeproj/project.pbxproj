@@ -21,6 +21,7 @@
 		3762F7102238ED72000CED15 /* FakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3762F70F2238ED72000CED15 /* FakeResponseData.swift */; };
 		3762F7122238EFD8000CED15 /* UrlSessionFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3762F7112238EFD8000CED15 /* UrlSessionFake.swift */; };
 		3762F7152238FB2C000CED15 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3762F7142238FB2C000CED15 /* ApiError.swift */; };
+		3762F71722390240000CED15 /* OpenFoodFactBarCodeKO.json in Resources */ = {isa = PBXBuildFile; fileRef = 3762F71622390240000CED15 /* OpenFoodFactBarCodeKO.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		3762F70F2238ED72000CED15 /* FakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponseData.swift; sourceTree = "<group>"; };
 		3762F7112238EFD8000CED15 /* UrlSessionFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlSessionFake.swift; sourceTree = "<group>"; };
 		3762F7142238FB2C000CED15 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
+		3762F71622390240000CED15 /* OpenFoodFactBarCodeKO.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = OpenFoodFactBarCodeKO.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 				3762F70F2238ED72000CED15 /* FakeResponseData.swift */,
 				3762F7112238EFD8000CED15 /* UrlSessionFake.swift */,
 				3762F70D2238ED5E000CED15 /* OpenFoodFactBarCodeOK.json */,
+				3762F71622390240000CED15 /* OpenFoodFactBarCodeKO.json */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3762F71722390240000CED15 /* OpenFoodFactBarCodeKO.json in Resources */,
 				3762F70E2238ED5E000CED15 /* OpenFoodFactBarCodeOK.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

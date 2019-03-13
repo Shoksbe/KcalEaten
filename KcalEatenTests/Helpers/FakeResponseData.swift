@@ -21,6 +21,12 @@ class FakeResponseData {
         return try! Data(contentsOf: url)
     }
 
+    static var openFoodFactBarCodeKO: Data? {
+        let bundle = Bundle(for: FakeResponseData.self)
+        let url = bundle.url(forResource: "OpenFoodFactBarCodeKO", withExtension: "json")!
+        return try! Data(contentsOf: url)
+    }
+
     static let incorrectData = "erreur".data(using: .utf8)!
 
     //------------------------

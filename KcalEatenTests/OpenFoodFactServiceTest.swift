@@ -90,6 +90,25 @@ class OpenFoodFactServiceTest: XCTestCase {
         wait(for: [expectation], timeout: 0.01)
     }
 
+    func testGetProductShouldPostFailedCallbackIfNoErrorAndCorrectDataButIncorrectBarCode() {
+        // Given
+        let openFoodFactService = OpenFoodFactService(
+            session: URLSessionFake(data: FakeResponseData.openFoodFactBarCodeKO, response: FakeResponseData.responseOK, error: nil))
+
+        // When
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+        openFoodFactService.getProduct(from: "302933000533") { (success, product, error) in
+            //Then
+            XCTAssertFalse(success)
+            XCTAssertNil(product)
+            XCTAssertNotNil(error)
+            XCTAssertEqual(error!, ApiError.noProductFound)
+
+            expectation.fulfill()
+        }
+
+        wait(for: [expectation], timeout: 0.01)
+    }
 
     func testGetProductShouldPostSuccessCallbackIfNoErrorAndCorrectData() {
         // Given
