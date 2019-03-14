@@ -15,6 +15,14 @@ class CoreDataHelper {
     //------------------------
 
 
+    func fetchAll() -> [ProductObject] {
+        //Request
+        let request: NSFetchRequest<ProductObject> = ProductObject.fetchRequest()
+        //try to get favorite product
+        guard let favoriteList = try? AppDelegate.viewContext.fetch(request) else { return [] }
+        return favoriteList
+    }
+
     /// Get all favorite product
     ///
     /// - Parameter viewContext: Context
@@ -89,6 +97,20 @@ class CoreDataHelper {
         consume.quantity = Int32(quantity)
         consume.product = product
 
+        do {
+            try AppDelegate.viewContext.save()
+        } catch {
+            throw CoreDataError.failedToSave
+        }
+    }
+    
+    
+    /// Delete consuming on database
+    ///
+    /// - Parameter consume: consuming to delete
+    /// - Throws: If save to database fail
+    func delete(consume: Consume) throws {
+        AppDelegate.viewContext.delete(consume)
         do {
             try AppDelegate.viewContext.save()
         } catch {
