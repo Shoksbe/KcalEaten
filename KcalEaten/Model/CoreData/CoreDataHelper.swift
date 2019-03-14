@@ -14,7 +14,11 @@ class CoreDataHelper {
     //MARK: - ProductHelpers
     //------------------------
 
-    //Get favorite
+
+    /// Get all favorite product
+    ///
+    /// - Parameter viewContext: Contect
+    /// - Returns: An array of product
     func fetchFavorite(viewContext: NSManagedObjectContext = AppDelegate.viewContext) -> [ProductObject] {
 
         //Request
@@ -28,5 +32,19 @@ class CoreDataHelper {
         //try to get favorite product
         guard let favoriteList = try? viewContext.fetch(request) else { return [] }
         return favoriteList
+    }
+
+
+    /// Save a product to the favorite
+    ///
+    /// - Parameter product: Product to add
+    /// - Throws: failed to save
+    func addToFavorite(product: ProductObject) throws {
+        product.isFavorite = true
+        do {
+            try AppDelegate.viewContext.save()
+        } catch {
+            throw CoreDataError.failedToSave
+        }
     }
 }

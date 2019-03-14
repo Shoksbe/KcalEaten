@@ -11,9 +11,9 @@ import Foundation
 class OpenFoodFactService {
 
     private var _task: URLSessionTask?
-    private var _session = URLSession(configuration: .default)
+    private var _session: URLSession!
 
-    init(session: URLSession) {
+    init(session: URLSession = URLSession(configuration: .default)) {
         self._session = session
     }
 

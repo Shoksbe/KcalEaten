@@ -20,7 +20,7 @@
 		3762F70E2238ED5E000CED15 /* OpenFoodFactBarCodeOK.json in Resources */ = {isa = PBXBuildFile; fileRef = 3762F70D2238ED5E000CED15 /* OpenFoodFactBarCodeOK.json */; };
 		3762F7102238ED72000CED15 /* FakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3762F70F2238ED72000CED15 /* FakeResponseData.swift */; };
 		3762F7122238EFD8000CED15 /* UrlSessionFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3762F7112238EFD8000CED15 /* UrlSessionFake.swift */; };
-		3762F7152238FB2C000CED15 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3762F7142238FB2C000CED15 /* ApiError.swift */; };
+		3762F7152238FB2C000CED15 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3762F7142238FB2C000CED15 /* CustomError.swift */; };
 		3762F71722390240000CED15 /* OpenFoodFactBarCodeKO.json in Resources */ = {isa = PBXBuildFile; fileRef = 3762F71622390240000CED15 /* OpenFoodFactBarCodeKO.json */; };
 		3762F71922396707000CED15 /* Consume.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3762F71822396707000CED15 /* Consume.swift */; };
 		378E3DED223A43FA005CB0D6 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E3DEC223A43FA005CB0D6 /* CoreDataHelper.swift */; };
@@ -54,7 +54,7 @@
 		3762F70D2238ED5E000CED15 /* OpenFoodFactBarCodeOK.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = OpenFoodFactBarCodeOK.json; sourceTree = "<group>"; };
 		3762F70F2238ED72000CED15 /* FakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponseData.swift; sourceTree = "<group>"; };
 		3762F7112238EFD8000CED15 /* UrlSessionFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlSessionFake.swift; sourceTree = "<group>"; };
-		3762F7142238FB2C000CED15 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
+		3762F7142238FB2C000CED15 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		3762F71622390240000CED15 /* OpenFoodFactBarCodeKO.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = OpenFoodFactBarCodeKO.json; sourceTree = "<group>"; };
 		3762F71822396707000CED15 /* Consume.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consume.swift; sourceTree = "<group>"; };
 		378E3DEC223A43FA005CB0D6 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
@@ -141,7 +141,7 @@
 			children = (
 				378E79AC2238537400A41E11 /* Services */,
 				378E79AD2238537C00A41E11 /* CoreData */,
-				3762F7142238FB2C000CED15 /* ApiError.swift */,
+				3762F7142238FB2C000CED15 /* CustomError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -289,7 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3762F7152238FB2C000CED15 /* ApiError.swift in Sources */,
+				3762F7152238FB2C000CED15 /* CustomError.swift in Sources */,
 				3762F6D92237E39D000CED15 /* AppDelegate.swift in Sources */,
 				3762F71922396707000CED15 /* Consume.swift in Sources */,
 				3762F6FF2237EE4B000CED15 /* OpenFoodFactDecodable.swift in Sources */,
