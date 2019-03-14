@@ -59,4 +59,22 @@ class CoreDataHelper {
             throw CoreDataError.failedToSave
         }
     }
+
+    //------------------------
+    //MARK: - ConsumeHelpers
+    //------------------------
+    func addConsume(date: Date = Date(), quantity: Int, product: ProductObject) throws {
+
+        let consume = Consume(context: AppDelegate.viewContext)
+        consume.date = date
+        consume.quantity = Int32(quantity)
+        consume.product = product
+
+        do {
+            try AppDelegate.viewContext.save()
+        } catch {
+            throw CoreDataError.failedToSave
+        }
+    }
+
 }
