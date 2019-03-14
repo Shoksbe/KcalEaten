@@ -8,6 +8,4 @@
 
 import CoreData
 
-class ProductObject: NSManagedObject {
-
-}
+class ProductObject: NSManagedObject {}

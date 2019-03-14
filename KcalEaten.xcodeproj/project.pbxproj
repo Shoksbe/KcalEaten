@@ -23,6 +23,7 @@
 		3762F7152238FB2C000CED15 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3762F7142238FB2C000CED15 /* ApiError.swift */; };
 		3762F71722390240000CED15 /* OpenFoodFactBarCodeKO.json in Resources */ = {isa = PBXBuildFile; fileRef = 3762F71622390240000CED15 /* OpenFoodFactBarCodeKO.json */; };
 		3762F71922396707000CED15 /* Consume.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3762F71822396707000CED15 /* Consume.swift */; };
+		378E3DED223A43FA005CB0D6 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E3DEC223A43FA005CB0D6 /* CoreDataHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		3762F7142238FB2C000CED15 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		3762F71622390240000CED15 /* OpenFoodFactBarCodeKO.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = OpenFoodFactBarCodeKO.json; sourceTree = "<group>"; };
 		3762F71822396707000CED15 /* Consume.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consume.swift; sourceTree = "<group>"; };
+		378E3DEC223A43FA005CB0D6 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +180,7 @@
 				3762F709223841DC000CED15 /* ProductObject.swift */,
 				3762F71822396707000CED15 /* Consume.swift */,
 				3762F7062238401E000CED15 /* KcalEaten.xcdatamodeld */,
+				378E3DEC223A43FA005CB0D6 /* CoreDataHelper.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 				3762F6FF2237EE4B000CED15 /* OpenFoodFactDecodable.swift in Sources */,
 				3762F7082238401E000CED15 /* KcalEaten.xcdatamodeld in Sources */,
 				3762F70322380906000CED15 /* CameraController.swift in Sources */,
+				378E3DED223A43FA005CB0D6 /* CoreDataHelper.swift in Sources */,
 				3762F6FD2237E9E7000CED15 /* OpenFoodFactService.swift in Sources */,
 				3762F70A223841DC000CED15 /* ProductObject.swift in Sources */,
 			);

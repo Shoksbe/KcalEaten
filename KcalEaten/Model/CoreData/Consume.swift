@@ -8,6 +8,4 @@
 
 import CoreData
 
-class Consume: NSManagedObject {
-    
-}
+class Consume: NSManagedObject {}
