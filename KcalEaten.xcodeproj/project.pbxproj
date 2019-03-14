@@ -24,6 +24,7 @@
 		3762F71722390240000CED15 /* OpenFoodFactBarCodeKO.json in Resources */ = {isa = PBXBuildFile; fileRef = 3762F71622390240000CED15 /* OpenFoodFactBarCodeKO.json */; };
 		3762F71922396707000CED15 /* Consume.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3762F71822396707000CED15 /* Consume.swift */; };
 		378E3DED223A43FA005CB0D6 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E3DEC223A43FA005CB0D6 /* CoreDataHelper.swift */; };
+		378E79B1223AE5BC00A41E11 /* CoreDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E79B0223AE5BC00A41E11 /* CoreDataTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		3762F71622390240000CED15 /* OpenFoodFactBarCodeKO.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = OpenFoodFactBarCodeKO.json; sourceTree = "<group>"; };
 		3762F71822396707000CED15 /* Consume.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consume.swift; sourceTree = "<group>"; };
 		378E3DEC223A43FA005CB0D6 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
+		378E79B0223AE5BC00A41E11 /* CoreDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				3762F6EF2237E39F000CED15 /* Info.plist */,
 				3762F70B2238ECC3000CED15 /* OpenFoodFactServiceTest.swift */,
 				3762F7132238F596000CED15 /* Helpers */,
+				378E79B0223AE5BC00A41E11 /* CoreDataTest.swift */,
 			);
 			path = KcalEatenTests;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				378E79B1223AE5BC00A41E11 /* CoreDataTest.swift in Sources */,
 				3762F70C2238ECC3000CED15 /* OpenFoodFactServiceTest.swift in Sources */,
 				3762F7102238ED72000CED15 /* FakeResponseData.swift in Sources */,
 				3762F7122238EFD8000CED15 /* UrlSessionFake.swift in Sources */,

@@ -9,25 +9,22 @@
 import CoreData
 
 class CoreDataHelper {
+    
+    private let _context: NSManagedObjectContext
+    
+    init(context: NSManagedObjectContext = AppDelegate.viewContext) {
+        self._context = context
+    }
 
     //------------------------
     //MARK: - ProductHelpers
     //------------------------
 
-
-    func fetchAll() -> [ProductObject] {
-        //Request
-        let request: NSFetchRequest<ProductObject> = ProductObject.fetchRequest()
-        //try to get favorite product
-        guard let favoriteList = try? AppDelegate.viewContext.fetch(request) else { return [] }
-        return favoriteList
-    }
-
     /// Get all favorite product
     ///
     /// - Parameter viewContext: Context
     /// - Returns: An array of product
-    func fetchFavorite(viewContext: NSManagedObjectContext = AppDelegate.viewContext) -> [ProductObject] {
+    func fetchFavorite() -> [ProductObject] {
 
         //Request
         let request: NSFetchRequest<ProductObject> = ProductObject.fetchRequest()
@@ -38,7 +35,7 @@ class CoreDataHelper {
             #keyPath(ProductObject.isFavorite), NSNumber(value: true))
 
         //try to get favorite product
-        guard let favoriteList = try? viewContext.fetch(request) else { return [] }
+        guard let favoriteList = try? _context.fetch(request) else { return [] }
         return favoriteList
     }
 
@@ -50,7 +47,7 @@ class CoreDataHelper {
     func addToFavorite(product: ProductObject) throws {
         product.isFavorite = true
         do {
-            try AppDelegate.viewContext.save()
+            try _context.save()
         } catch {
             throw CoreDataError.failedToSave
         }
@@ -62,7 +59,7 @@ class CoreDataHelper {
     func removeFavorite(from product: ProductObject) throws {
         product.isFavorite = false
         do {
-            try AppDelegate.viewContext.save()
+            try _context.save()
         } catch {
             throw CoreDataError.failedToSave
         }
@@ -77,9 +74,9 @@ class CoreDataHelper {
     ///
     /// - Parameter viewContext: context
     /// - Returns: An array of consume
-    func fetchConsume(viewContext: NSManagedObjectContext = AppDelegate.viewContext) -> [Consume] {
+    func fetchConsume() -> [Consume] {
         let request: NSFetchRequest<Consume> = Consume.fetchRequest()
-        guard let consumes = try? viewContext.fetch(request) else { return [] }
+        guard let consumes = try? _context.fetch(request) else { return [] }
         return consumes
     }
 
@@ -92,13 +89,13 @@ class CoreDataHelper {
     /// - Throws: If save to database fail
     func addConsume(date: Date = Date(), quantity: Int, product: ProductObject) throws {
 
-        let consume = Consume(context: AppDelegate.viewContext)
+        let consume = Consume(context: _context)
         consume.date = date
         consume.quantity = Int32(quantity)
         consume.product = product
 
         do {
-            try AppDelegate.viewContext.save()
+            try _context.save()
         } catch {
             throw CoreDataError.failedToSave
         }
@@ -110,9 +107,9 @@ class CoreDataHelper {
     /// - Parameter consume: consuming to delete
     /// - Throws: If save to database fail
     func delete(consume: Consume) throws {
-        AppDelegate.viewContext.delete(consume)
+        _context.delete(consume)
         do {
-            try AppDelegate.viewContext.save()
+            try _context.save()
         } catch {
             throw CoreDataError.failedToSave
         }
