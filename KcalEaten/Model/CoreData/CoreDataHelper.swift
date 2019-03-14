@@ -17,7 +17,7 @@ class CoreDataHelper {
 
     /// Get all favorite product
     ///
-    /// - Parameter viewContext: Contect
+    /// - Parameter viewContext: Context
     /// - Returns: An array of product
     func fetchFavorite(viewContext: NSManagedObjectContext = AppDelegate.viewContext) -> [ProductObject] {
 
@@ -63,6 +63,25 @@ class CoreDataHelper {
     //------------------------
     //MARK: - ConsumeHelpers
     //------------------------
+
+    
+    /// Get all consume from database
+    ///
+    /// - Parameter viewContext: context
+    /// - Returns: An array of consume
+    func fetchConsume(viewContext: NSManagedObjectContext = AppDelegate.viewContext) -> [Consume] {
+        let request: NSFetchRequest<Consume> = Consume.fetchRequest()
+        guard let consumes = try? viewContext.fetch(request) else { return [] }
+        return consumes
+    }
+
+    /// add a consomation to the database
+    ///
+    /// - Parameters:
+    ///   - date: date of consomation, by default is now
+    ///   - quantity: consomation's quantity
+    ///   - product: wich product is consuming
+    /// - Throws: If save to database fail
     func addConsume(date: Date = Date(), quantity: Int, product: ProductObject) throws {
 
         let consume = Consume(context: AppDelegate.viewContext)
