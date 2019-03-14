@@ -37,10 +37,22 @@ class CoreDataHelper {
 
     /// Save a product to the favorite
     ///
-    /// - Parameter product: Product to add
+    /// - Parameter product: Product to make favorite
     /// - Throws: failed to save
     func addToFavorite(product: ProductObject) throws {
         product.isFavorite = true
+        do {
+            try AppDelegate.viewContext.save()
+        } catch {
+            throw CoreDataError.failedToSave
+        }
+    }
+
+    /// Unsave a product to the favorite
+    ///
+    /// - Parameter product: Product to unmake favorite
+    func removeFavorite(from product: ProductObject) throws {
+        product.isFavorite = false
         do {
             try AppDelegate.viewContext.save()
         } catch {
