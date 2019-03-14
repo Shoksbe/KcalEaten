@@ -6,7 +6,6 @@
 //  Copyright © 2019 Gregory De knyf. All rights reserved.
 //
 
-import UIKit
 import CoreData
 
 class ProductObject: NSManagedObject {
