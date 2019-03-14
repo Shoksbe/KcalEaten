@@ -26,3 +26,16 @@ extension ApiError: LocalizedError {
         }
     }
 }
+
+enum CoreDataError: Error {
+    case failedToSave
+}
+
+extension CoreDataError: LocalizedError {
+    var errorDescription: String? {
+        switch self {
+        case .failedToSave:
+            return NSLocalizedString("Une erreure s'est produite lors de la sauvegarde.", comment: "")
+        }
+    }
+}
