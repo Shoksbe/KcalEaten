@@ -20,6 +20,21 @@ class CoreDataHelper {
     //MARK: - ProductHelpers
     //------------------------
 
+    /// Get all product
+    ///
+    /// - Parameter viewContext: Context
+    /// - Returns: An array of product
+    func fetchAllProduct() -> [ProductObject] {
+
+        //Request
+        let request: NSFetchRequest<ProductObject> = ProductObject.fetchRequest()
+
+        //try to get product
+        guard let products = try? _context.fetch(request) else { return [] }
+        return products
+    }
+
+
     /// Get all favorite product
     ///
     /// - Parameter viewContext: Context

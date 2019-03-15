@@ -152,4 +152,26 @@ class CoreDataTest: XCTestCase {
         XCTAssertEqual(4, favorites.count)
 
     }
+
+    func testIfProductItsNotDuplicateWhenIsManipulating() {
+
+        let context = mockContainer.viewContext
+        var allProducts = [ProductObject]()
+        let product = createProduct(quantity: 1, into: context)[0]
+        print(allProducts.count)
+
+
+        XCTAssertNoThrow(try? CoreDataHelper(context: context).addToFavorite(product: product))
+        allProducts = CoreDataHelper(context: context).fetchAllProduct()
+        XCTAssertEqual(1, allProducts.count)
+
+        XCTAssertNoThrow(try? CoreDataHelper(context: context).removeFavorite(from: product))
+        allProducts = CoreDataHelper(context: context).fetchAllProduct()
+        XCTAssertEqual(1, allProducts.count)
+
+        XCTAssertNoThrow(try? CoreDataHelper(context: context).addConsume(quantity: 100, product: product))
+        allProducts = CoreDataHelper(context: context).fetchAllProduct()
+        XCTAssertEqual(1, allProducts.count)
+
+    }
 }
