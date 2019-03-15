@@ -79,8 +79,9 @@ class CoreDataTest: XCTestCase {
         products.forEach { (product) in
             XCTAssertNoThrow(try? CoreDataHelper(context: context).addConsume(quantity: 100, product: product))
         }
-        
-        let consumes = CoreDataHelper(context: context).fetchConsume()
+
+        XCTAssertNoThrow(try? CoreDataHelper(context: context).fetchConsume())
+        let consumes = try! CoreDataHelper(context: context).fetchConsume()
         
         XCTAssertEqual(10, consumes.count)
         
@@ -100,13 +101,15 @@ class CoreDataTest: XCTestCase {
         }
         
         //Get consumes (10)
-        var consumes = CoreDataHelper(context: context).fetchConsume()
+        XCTAssertNoThrow(try? CoreDataHelper(context: context).fetchConsume())
+        var consumes = try! CoreDataHelper(context: context).fetchConsume()
         
         //Delete 1 consume
         XCTAssertNoThrow(try? CoreDataHelper(context: context).delete(consume: consumes[0]))
         
         //Get consumes (9)
-        consumes = CoreDataHelper(context: context).fetchConsume()
+        XCTAssertNoThrow(try? CoreDataHelper(context: context).fetchConsume())
+        consumes = try! CoreDataHelper(context: context).fetchConsume()
 
         XCTAssertEqual(9, consumes.count)
         
@@ -117,7 +120,8 @@ class CoreDataTest: XCTestCase {
     //------------------------
     
     func testGiven0FavoriteWhenGetCountThenCountEqual0() {
-        let favorites = CoreDataHelper(context: mockContainer.viewContext).fetchFavorite()
+        XCTAssertNoThrow(try? CoreDataHelper(context: mockContainer.viewContext).fetchFavorite())
+        let favorites = try! CoreDataHelper(context: mockContainer.viewContext).fetchFavorite()
         XCTAssertEqual(0, favorites.count)
     }
     
@@ -129,7 +133,8 @@ class CoreDataTest: XCTestCase {
         addFavorite(quantity: 5, into: context)
         
         //Then
-        let favorites = CoreDataHelper(context: context).fetchFavorite()
+        XCTAssertNoThrow(try? CoreDataHelper(context: context).fetchFavorite())
+        let favorites = try! CoreDataHelper(context: context).fetchFavorite()
         
         XCTAssertEqual(5, favorites.count)
     }
@@ -143,12 +148,14 @@ class CoreDataTest: XCTestCase {
         addFavorite(quantity: 5, into: context)
         
         //When
-        favorites = CoreDataHelper(context: context).fetchFavorite()
+        XCTAssertNoThrow(try? CoreDataHelper(context: context).fetchFavorite())
+        favorites = try! CoreDataHelper(context: context).fetchFavorite()
         XCTAssertEqual(5, favorites.count)
         
         XCTAssertNoThrow(try? CoreDataHelper(context: context).removeFavorite(from: favorites[0]))
-        
-        favorites = CoreDataHelper(context: context).fetchFavorite()
+
+        XCTAssertNoThrow(try? CoreDataHelper(context: context).fetchFavorite())
+        favorites = try! CoreDataHelper(context: context).fetchFavorite()
         XCTAssertEqual(4, favorites.count)
 
     }
@@ -162,15 +169,18 @@ class CoreDataTest: XCTestCase {
 
 
         XCTAssertNoThrow(try? CoreDataHelper(context: context).addToFavorite(product: product))
-        allProducts = CoreDataHelper(context: context).fetchAllProduct()
+        XCTAssertNoThrow(try? CoreDataHelper(context: context).fetchAllProduct())
+        allProducts = try! CoreDataHelper(context: context).fetchAllProduct()
         XCTAssertEqual(1, allProducts.count)
 
         XCTAssertNoThrow(try? CoreDataHelper(context: context).removeFavorite(from: product))
-        allProducts = CoreDataHelper(context: context).fetchAllProduct()
+        XCTAssertNoThrow(try? CoreDataHelper(context: context).fetchAllProduct())
+        allProducts = try! CoreDataHelper(context: context).fetchAllProduct()
         XCTAssertEqual(1, allProducts.count)
 
         XCTAssertNoThrow(try? CoreDataHelper(context: context).addConsume(quantity: 100, product: product))
-        allProducts = CoreDataHelper(context: context).fetchAllProduct()
+        XCTAssertNoThrow(try? CoreDataHelper(context: context).fetchAllProduct())
+        allProducts = try! CoreDataHelper(context: context).fetchAllProduct()
         XCTAssertEqual(1, allProducts.count)
 
     }

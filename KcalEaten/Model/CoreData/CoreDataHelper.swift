@@ -24,14 +24,17 @@ class CoreDataHelper {
     ///
     /// - Parameter viewContext: Context
     /// - Returns: An array of product
-    func fetchAllProduct() -> [ProductObject] {
+    func fetchAllProduct() throws -> [ProductObject] {
 
         //Request
         let request: NSFetchRequest<ProductObject> = ProductObject.fetchRequest()
 
         //try to get product
-        guard let products = try? _context.fetch(request) else { return [] }
-        return products
+        do {
+            return try _context.fetch(request)
+        } catch {
+            throw CoreDataError.failedToFetch
+        }
     }
 
 
@@ -39,7 +42,7 @@ class CoreDataHelper {
     ///
     /// - Parameter viewContext: Context
     /// - Returns: An array of product
-    func fetchFavorite() -> [ProductObject] {
+    func fetchFavorite() throws -> [ProductObject] {
 
         //Request
         let request: NSFetchRequest<ProductObject> = ProductObject.fetchRequest()
@@ -50,8 +53,12 @@ class CoreDataHelper {
             #keyPath(ProductObject.isFavorite), NSNumber(value: true))
 
         //try to get favorite product
-        guard let favoriteList = try? _context.fetch(request) else { return [] }
-        return favoriteList
+
+        do {
+            return try _context.fetch(request)
+        } catch {
+            throw CoreDataError.failedToFetch
+        }
     }
 
 
@@ -89,10 +96,14 @@ class CoreDataHelper {
     ///
     /// - Parameter viewContext: context
     /// - Returns: An array of consume
-    func fetchConsume() -> [Consume] {
+    func fetchConsume() throws -> [Consume] {
         let request: NSFetchRequest<Consume> = Consume.fetchRequest()
-        guard let consumes = try? _context.fetch(request) else { return [] }
-        return consumes
+
+        do {
+            return try _context.fetch(request)
+        } catch {
+            throw CoreDataError.failedToFetch
+        }
     }
 
     /// add a consomation to the database

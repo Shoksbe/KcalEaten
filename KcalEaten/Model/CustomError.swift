@@ -28,7 +28,7 @@ extension ApiError: LocalizedError {
 }
 
 enum CoreDataError: Error {
-    case failedToSave
+    case failedToSave, failedToFetch
 }
 
 extension CoreDataError: LocalizedError {
@@ -36,6 +36,9 @@ extension CoreDataError: LocalizedError {
         switch self {
         case .failedToSave:
             return NSLocalizedString("Une erreure s'est produite lors de la sauvegarde.", comment: "")
+        case .failedToFetch:
+            return NSLocalizedString("Impossible de récupérer les éléments depuis la base de données", comment: "")
         }
+
     }
 }
