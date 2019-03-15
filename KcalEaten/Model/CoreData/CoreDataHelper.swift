@@ -98,6 +98,8 @@ class CoreDataHelper {
     /// - Returns: An array of consume
     func fetchConsume() throws -> [Consume] {
         let request: NSFetchRequest<Consume> = Consume.fetchRequest()
+        let sort = NSSortDescriptor(key: "date", ascending: false)
+        request.sortDescriptors = [sort]
 
         do {
             return try _context.fetch(request)
