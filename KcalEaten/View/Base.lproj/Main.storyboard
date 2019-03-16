@@ -43,23 +43,47 @@
             </objects>
             <point key="canvasLocation" x="-1188" y="908"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="z4v-je-Soj">
+        <!--Scanner Page Controller-->
+        <scene sceneID="XDE-gI-jiq">
             <objects>
-                <viewController id="cBC-l4-Si2" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="SME-CU-E1H">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="yBB-Cl-9F6"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="" image="barCodeIcon" selectedImage="barCodeIcon" id="1lo-av-JvH">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c08-oJ-T4z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="b8q-5w-Th2" customClass="ScannerPageController" customModule="KcalEaten" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="barCodeIcon" id="OSS-fA-U0L">
                         <inset key="imageInsets" minX="0.0" minY="-30" maxX="0.0" maxY="0.0"/>
                     </tabBarItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DRJ-Ks-IDu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </pageViewController>
             </objects>
-            <point key="canvasLocation" x="-183" y="907"/>
+            <point key="canvasLocation" x="-183" y="940"/>
+        </scene>
+        <!--Camera Controller-->
+        <scene sceneID="nEF-7x-igo">
+            <objects>
+                <viewController storyboardIdentifier="CameraController" id="ryy-gN-9el" customClass="CameraController" customModule="KcalEaten" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oUh-l6-U5M">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" name="CRed"/>
+                        <viewLayoutGuide key="safeArea" id="gRb-mS-3bc"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U01-7f-muK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-530" y="1693"/>
+        </scene>
+        <!--Bar Code Controller-->
+        <scene sceneID="Xcs-S3-MbC">
+            <objects>
+                <viewController storyboardIdentifier="BarCodeController" id="v0N-eP-PNI" customClass="BarCodeController" customModule="KcalEaten" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hWX-aT-2kV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" name="CYellow"/>
+                        <viewLayoutGuide key="safeArea" id="Yr6-1K-QP0"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mx9-u6-evx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="276" y="1693"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="b95-IU-nKd">
@@ -67,6 +91,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="quD-3O-o3z" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" itemPositioning="centered" id="T6a-m5-S06">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" name="CPurple"/>
@@ -74,7 +99,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="3yG-8j-j1F" kind="relationship" relationship="viewControllers" id="lmR-Wo-USC"/>
-                        <segue destination="cBC-l4-Si2" kind="relationship" relationship="viewControllers" id="WwW-9V-mgP"/>
+                        <segue destination="b8q-5w-Th2" kind="relationship" relationship="viewControllers" id="9gK-PT-Rxs"/>
                         <segue destination="Iyr-kM-lD6" kind="relationship" relationship="viewControllers" id="vcC-Z5-Xll"/>
                     </connections>
                 </tabBarController>
@@ -87,6 +112,12 @@
         <image name="barCodeIcon" width="75" height="75"/>
         <namedColor name="CPurple">
             <color red="0.32899999618530273" green="0.14100000262260437" blue="0.21500000357627869" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="CRed">
+            <color red="0.75199997425079346" green="0.15999999642372131" blue="0.25799998641014099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="CYellow">
+            <color red="0.92500001192092896" green="0.81499999761581421" blue="0.4699999988079071" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
