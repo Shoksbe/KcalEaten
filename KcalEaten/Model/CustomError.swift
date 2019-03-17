@@ -42,3 +42,18 @@ extension CoreDataError: LocalizedError {
 
     }
 }
+
+enum UserError: Error {
+    case barCodeToShort, barCodeToLong
+}
+
+extension UserError: LocalizedError {
+    var errorDescription: String? {
+        switch self {
+        case .barCodeToShort:
+            return NSLocalizedString("Le code barre est trop court, il doit contenir 13 chiffres.", comment: "")
+        case .barCodeToLong:
+            return NSLocalizedString("Le code barre est trop long, il doit contenir 13 chiffres", comment: "")
+        }
+    }
+}

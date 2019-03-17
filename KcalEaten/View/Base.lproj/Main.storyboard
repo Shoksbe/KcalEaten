@@ -46,12 +46,12 @@
         <!--Scanner Page Controller-->
         <scene sceneID="XDE-gI-jiq">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="c08-oJ-T4z" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="b8q-5w-Th2" customClass="ScannerPageController" customModule="KcalEaten" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="barCodeIcon" id="OSS-fA-U0L">
                         <inset key="imageInsets" minX="0.0" minY="-30" maxX="0.0" maxY="0.0"/>
                     </tabBarItem>
                 </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c08-oJ-T4z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-183" y="940"/>
         </scene>
@@ -77,13 +77,67 @@
                     <view key="view" contentMode="scaleToFill" id="hWX-aT-2kV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BarCodeLogo" translatesAutoresizingMaskIntoConstraints="NO" id="rz6-Fg-Wfb">
+                                <rect key="frame" x="56.5" y="124.5" width="262.5" height="268"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="rz6-Fg-Wfb" secondAttribute="height" multiplier="45:46" id="PVB-3v-1FV"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Entrez votre code barre" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UpY-XC-r5T">
+                                <rect key="frame" x="56.5" y="392.5" width="262.5" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Dq4-ih-Vz5"/>
+                                </constraints>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" returnKeyType="search"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="aWX-Og-G9j">
+                                <rect key="frame" x="56.5" y="488.5" width="262.5" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" name="CRed"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZ9-gV-g9c">
+                                <rect key="frame" x="56.5" y="440.5" width="262.5" height="40"/>
+                                <color key="backgroundColor" name="COrange"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="NUU-Qd-0nv"/>
+                                </constraints>
+                                <state key="normal" title="Rechercher">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchBarCode:" destination="v0N-eP-PNI" eventType="touchUpInside" id="SLf-nD-EJo"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" name="CYellow"/>
+                        <constraints>
+                            <constraint firstItem="UpY-XC-r5T" firstAttribute="width" secondItem="rz6-Fg-Wfb" secondAttribute="width" id="GtV-mb-KRP"/>
+                            <constraint firstItem="aWX-Og-G9j" firstAttribute="centerX" secondItem="UpY-XC-r5T" secondAttribute="centerX" id="N1U-89-mxH"/>
+                            <constraint firstItem="rz6-Fg-Wfb" firstAttribute="centerX" secondItem="hWX-aT-2kV" secondAttribute="centerX" id="R53-e7-AHG"/>
+                            <constraint firstItem="rz6-Fg-Wfb" firstAttribute="width" secondItem="hWX-aT-2kV" secondAttribute="width" multiplier="0.7" id="Sz7-zd-ebr"/>
+                            <constraint firstItem="aWX-Og-G9j" firstAttribute="width" secondItem="UpY-XC-r5T" secondAttribute="width" id="TTY-VZ-0MY"/>
+                            <constraint firstItem="aWX-Og-G9j" firstAttribute="top" secondItem="ZZ9-gV-g9c" secondAttribute="bottom" constant="8" id="UgA-BK-OBc"/>
+                            <constraint firstItem="ZZ9-gV-g9c" firstAttribute="centerX" secondItem="UpY-XC-r5T" secondAttribute="centerX" id="XsD-r9-Ay2"/>
+                            <constraint firstItem="UpY-XC-r5T" firstAttribute="centerX" secondItem="hWX-aT-2kV" secondAttribute="centerX" id="bJn-oZ-tmH"/>
+                            <constraint firstItem="ZZ9-gV-g9c" firstAttribute="width" secondItem="UpY-XC-r5T" secondAttribute="width" id="c98-ub-On1"/>
+                            <constraint firstItem="UpY-XC-r5T" firstAttribute="top" secondItem="rz6-Fg-Wfb" secondAttribute="bottom" id="dTr-bm-CeG"/>
+                            <constraint firstItem="rz6-Fg-Wfb" firstAttribute="centerY" secondItem="hWX-aT-2kV" secondAttribute="centerY" constant="-75" id="dzc-aL-udi"/>
+                            <constraint firstItem="ZZ9-gV-g9c" firstAttribute="top" secondItem="UpY-XC-r5T" secondAttribute="bottom" constant="8" id="xBI-Pc-c6h"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Yr6-1K-QP0"/>
                     </view>
+                    <connections>
+                        <outlet property="barCode" destination="UpY-XC-r5T" id="f52-cH-EyL"/>
+                        <outlet property="errorLabel" destination="aWX-Og-G9j" id="1w5-so-2UZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mx9-u6-evx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="276" y="1693"/>
+            <point key="canvasLocation" x="276" y="1692.5037481259371"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="b95-IU-nKd">
@@ -109,7 +163,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="BarCodeLogo" width="487" height="487"/>
         <image name="barCodeIcon" width="75" height="75"/>
+        <namedColor name="COrange">
+            <color red="0.85000002384185791" green="0.35499998927116394" blue="0.26199999451637268" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="CPurple">
             <color red="0.32899999618530273" green="0.14100000262260437" blue="0.21500000357627869" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
