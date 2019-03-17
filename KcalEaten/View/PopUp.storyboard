@@ -145,7 +145,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.66460897019999998" green="0.66460897019999998" blue="0.66460897019999998" alpha="0.69729313380000002" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.40999433289999998" green="0.40999433289999998" blue="0.40999433289999998" alpha="0.80939150530000004" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="GEq-q3-SWz" firstAttribute="centerY" secondItem="gJN-BE-dUh" secondAttribute="centerY" id="36l-DQ-d8O"/>
                             <constraint firstItem="GEq-q3-SWz" firstAttribute="width" secondItem="gJN-BE-dUh" secondAttribute="width" multiplier="0.7" id="LH1-N8-7eM"/>
