@@ -44,7 +44,7 @@ extension CoreDataError: LocalizedError {
 }
 
 enum UserError: Error {
-    case barCodeToShort, barCodeToLong
+    case barCodeToShort, barCodeToLong, quantityToShort, quantityConversionImpossible
 }
 
 extension UserError: LocalizedError {
@@ -54,6 +54,23 @@ extension UserError: LocalizedError {
             return NSLocalizedString("Le code barre est trop court, il doit contenir 13 chiffres.", comment: "")
         case .barCodeToLong:
             return NSLocalizedString("Le code barre est trop long, il doit contenir 13 chiffres", comment: "")
+        case .quantityToShort:
+            return NSLocalizedString("N'oubliez pas d'entrer une quantité.", comment: "")
+        case .quantityConversionImpossible:
+            return NSLocalizedString("Récupération de la quantité impossible, 0 par défaut.'", comment: "")
+        }
+    }
+}
+
+enum ProductError: Error {
+    case noName
+}
+
+extension ProductError: LocalizedError {
+    var errorDescription: String? {
+        switch self {
+        case .noName:
+            return NSLocalizedString("Nom du produit inconnu", comment: "")
         }
     }
 }

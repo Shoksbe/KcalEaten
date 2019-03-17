@@ -14,10 +14,12 @@ import UIKit
 
 class BarCodeController: UIViewController {
     
-    private var _barCodeSize = 13
+    private let _service = OpenFoodFactService()
+    private let _barCodeSize = 13
 
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var barCode: UITextField!
+    @IBOutlet weak var activityController: UIActivityIndicatorView!
 }
 
 //------------------------
@@ -38,6 +40,8 @@ extension BarCodeController {
     @IBAction func searchBarCode(_ sender: Any) {
         do {
             try checkBarCode()
+            errorLabel.text = ""
+            getProduct()
         } catch {
             errorLabel.text = error.localizedDescription
         }
@@ -63,6 +67,29 @@ extension BarCodeController {
             } else {
                 throw UserError.barCodeToLong
             }
+        }
+    }
+    
+    private func getProduct() {
+        
+        activityController.startAnimating()
+        
+        _service.getProduct(from: barCode.text!) { (success, product, error) in
+            
+            self.activityController.stopAnimating()
+            
+            guard error == nil,
+                let product = product else {
+                //Alert error
+                    print(error?.localizedDescription)
+                return
+            }
+            
+            //Lancer la page avec le produit
+            let sb = UIStoryboard(name: "PopUp", bundle: nil)
+            let popUp = sb.instantiateViewController(withIdentifier: "AddConsommationPopUp") as! AddConsommationPopUp
+            popUp.productObject = product
+            self.present(popUp, animated: true)
         }
     }
 }

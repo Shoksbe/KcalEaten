@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		37273657223E3E0C003483FD /* PopUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37273656223E3E0C003483FD /* PopUp.storyboard */; };
+		3727365A223E45A0003483FD /* AddConsommationPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37273659223E45A0003483FD /* AddConsommationPopUp.swift */; };
+		3727365C223E5031003483FD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3727365B223E5031003483FD /* Constants.swift */; };
+		3727365E223E7BEE003483FD /* CustomPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3727365D223E7BEE003483FD /* CustomPopUp.swift */; };
+		37273660223EBF62003483FD /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3727365F223EBF62003483FD /* CustomButton.swift */; };
 		3762F6D92237E39D000CED15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3762F6D82237E39D000CED15 /* AppDelegate.swift */; };
 		3762F6DE2237E39D000CED15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3762F6DC2237E39D000CED15 /* Main.storyboard */; };
 		3762F6E02237E39E000CED15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3762F6DF2237E39E000CED15 /* Assets.xcassets */; };
@@ -40,6 +45,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		37273656223E3E0C003483FD /* PopUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PopUp.storyboard; sourceTree = "<group>"; };
+		37273659223E45A0003483FD /* AddConsommationPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddConsommationPopUp.swift; sourceTree = "<group>"; };
+		3727365B223E5031003483FD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		3727365D223E7BEE003483FD /* CustomPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopUp.swift; sourceTree = "<group>"; };
+		3727365F223EBF62003483FD /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		3762F6D52237E39D000CED15 /* KcalEaten.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KcalEaten.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3762F6D82237E39D000CED15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3762F6DD2237E39D000CED15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -84,6 +94,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		37273658223E455A003483FD /* PopUp */ = {
+			isa = PBXGroup;
+			children = (
+				37273659223E45A0003483FD /* AddConsommationPopUp.swift */,
+			);
+			path = PopUp;
+			sourceTree = "<group>";
+		};
 		3762F6CC2237E39D000CED15 = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +156,9 @@
 			isa = PBXGroup;
 			children = (
 				3762F6DC2237E39D000CED15 /* Main.storyboard */,
+				37273656223E3E0C003483FD /* PopUp.storyboard */,
+				3727365D223E7BEE003483FD /* CustomPopUp.swift */,
+				3727365F223EBF62003483FD /* CustomButton.swift */,
 				3762F6E12237E39E000CED15 /* LaunchScreen.storyboard */,
 			);
 			path = View;
@@ -149,6 +170,7 @@
 				378E79AC2238537400A41E11 /* Services */,
 				378E79AD2238537C00A41E11 /* CoreData */,
 				3762F7142238FB2C000CED15 /* CustomError.swift */,
+				3727365B223E5031003483FD /* Constants.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -156,6 +178,7 @@
 		3762F6FB2237E4B2000CED15 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				37273658223E455A003483FD /* PopUp */,
 				37DA92A2223D8F8A00F3DFED /* Scanner */,
 			);
 			path = Controller;
@@ -287,6 +310,7 @@
 				3762F6E32237E39E000CED15 /* LaunchScreen.storyboard in Resources */,
 				3762F6E02237E39E000CED15 /* Assets.xcassets in Resources */,
 				3762F6DE2237E39D000CED15 /* Main.storyboard in Resources */,
+				37273657223E3E0C003483FD /* PopUp.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,16 +331,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				3762F7152238FB2C000CED15 /* CustomError.swift in Sources */,
+				3727365A223E45A0003483FD /* AddConsommationPopUp.swift in Sources */,
 				3762F6D92237E39D000CED15 /* AppDelegate.swift in Sources */,
 				37DA929F223D85C000F3DFED /* BarCodeController.swift in Sources */,
 				3762F71922396707000CED15 /* Consume.swift in Sources */,
 				3762F6FF2237EE4B000CED15 /* OpenFoodFactDecodable.swift in Sources */,
 				3762F7082238401E000CED15 /* KcalEaten.xcdatamodeld in Sources */,
+				3727365E223E7BEE003483FD /* CustomPopUp.swift in Sources */,
+				3727365C223E5031003483FD /* Constants.swift in Sources */,
 				3762F70322380906000CED15 /* CameraController.swift in Sources */,
 				378E3DED223A43FA005CB0D6 /* CoreDataHelper.swift in Sources */,
 				3762F6FD2237E9E7000CED15 /* OpenFoodFactService.swift in Sources */,
 				3762F70A223841DC000CED15 /* ProductObject.swift in Sources */,
 				37DA92A1223D868E00F3DFED /* ScannerPageController.swift in Sources */,
+				37273660223EBF62003483FD /* CustomButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

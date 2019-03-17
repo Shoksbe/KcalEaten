@@ -99,38 +99,54 @@
                                 <color key="textColor" name="CRed"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZ9-gV-g9c">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tZh-oa-NIm" userLabel="container">
                                 <rect key="frame" x="56.5" y="440.5" width="262.5" height="40"/>
-                                <color key="backgroundColor" name="COrange"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZ9-gV-g9c" customClass="CustomButton" customModule="KcalEaten" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="262.5" height="40"/>
+                                        <color key="backgroundColor" name="COrange"/>
+                                        <state key="normal" title="Rechercher">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="searchBarCode:" destination="v0N-eP-PNI" eventType="touchUpInside" id="SLf-nD-EJo"/>
+                                        </connections>
+                                    </button>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="gTK-4F-HWJ">
+                                        <rect key="frame" x="121" y="10" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="NUU-Qd-0nv"/>
+                                    <constraint firstItem="gTK-4F-HWJ" firstAttribute="centerX" secondItem="tZh-oa-NIm" secondAttribute="centerX" id="FDt-Te-FDj"/>
+                                    <constraint firstItem="ZZ9-gV-g9c" firstAttribute="leading" secondItem="tZh-oa-NIm" secondAttribute="leading" id="Kho-do-7Xv"/>
+                                    <constraint firstAttribute="height" constant="40" id="LOq-kV-VMv"/>
+                                    <constraint firstItem="ZZ9-gV-g9c" firstAttribute="top" secondItem="tZh-oa-NIm" secondAttribute="top" id="ZtY-jf-Tqi"/>
+                                    <constraint firstItem="gTK-4F-HWJ" firstAttribute="centerY" secondItem="tZh-oa-NIm" secondAttribute="centerY" id="qaN-Hc-4W5"/>
+                                    <constraint firstAttribute="bottom" secondItem="ZZ9-gV-g9c" secondAttribute="bottom" id="sCa-Ge-RCN"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZZ9-gV-g9c" secondAttribute="trailing" id="xBu-Db-AVb"/>
                                 </constraints>
-                                <state key="normal" title="Rechercher">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="searchBarCode:" destination="v0N-eP-PNI" eventType="touchUpInside" id="SLf-nD-EJo"/>
-                                </connections>
-                            </button>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" name="CYellow"/>
                         <constraints>
+                            <constraint firstItem="tZh-oa-NIm" firstAttribute="width" secondItem="UpY-XC-r5T" secondAttribute="width" id="7ZI-Mx-KWC"/>
                             <constraint firstItem="UpY-XC-r5T" firstAttribute="width" secondItem="rz6-Fg-Wfb" secondAttribute="width" id="GtV-mb-KRP"/>
                             <constraint firstItem="aWX-Og-G9j" firstAttribute="centerX" secondItem="UpY-XC-r5T" secondAttribute="centerX" id="N1U-89-mxH"/>
                             <constraint firstItem="rz6-Fg-Wfb" firstAttribute="centerX" secondItem="hWX-aT-2kV" secondAttribute="centerX" id="R53-e7-AHG"/>
                             <constraint firstItem="rz6-Fg-Wfb" firstAttribute="width" secondItem="hWX-aT-2kV" secondAttribute="width" multiplier="0.7" id="Sz7-zd-ebr"/>
                             <constraint firstItem="aWX-Og-G9j" firstAttribute="width" secondItem="UpY-XC-r5T" secondAttribute="width" id="TTY-VZ-0MY"/>
-                            <constraint firstItem="aWX-Og-G9j" firstAttribute="top" secondItem="ZZ9-gV-g9c" secondAttribute="bottom" constant="8" id="UgA-BK-OBc"/>
-                            <constraint firstItem="ZZ9-gV-g9c" firstAttribute="centerX" secondItem="UpY-XC-r5T" secondAttribute="centerX" id="XsD-r9-Ay2"/>
                             <constraint firstItem="UpY-XC-r5T" firstAttribute="centerX" secondItem="hWX-aT-2kV" secondAttribute="centerX" id="bJn-oZ-tmH"/>
-                            <constraint firstItem="ZZ9-gV-g9c" firstAttribute="width" secondItem="UpY-XC-r5T" secondAttribute="width" id="c98-ub-On1"/>
+                            <constraint firstItem="aWX-Og-G9j" firstAttribute="top" secondItem="tZh-oa-NIm" secondAttribute="bottom" constant="8" id="dIu-Py-DV4"/>
+                            <constraint firstItem="tZh-oa-NIm" firstAttribute="top" secondItem="UpY-XC-r5T" secondAttribute="bottom" constant="8" id="dQk-Lu-9qN"/>
                             <constraint firstItem="UpY-XC-r5T" firstAttribute="top" secondItem="rz6-Fg-Wfb" secondAttribute="bottom" id="dTr-bm-CeG"/>
                             <constraint firstItem="rz6-Fg-Wfb" firstAttribute="centerY" secondItem="hWX-aT-2kV" secondAttribute="centerY" constant="-75" id="dzc-aL-udi"/>
-                            <constraint firstItem="ZZ9-gV-g9c" firstAttribute="top" secondItem="UpY-XC-r5T" secondAttribute="bottom" constant="8" id="xBI-Pc-c6h"/>
+                            <constraint firstItem="tZh-oa-NIm" firstAttribute="centerX" secondItem="aWX-Og-G9j" secondAttribute="centerX" id="n7W-k9-DJg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Yr6-1K-QP0"/>
                     </view>
                     <connections>
+                        <outlet property="activityController" destination="gTK-4F-HWJ" id="Fps-4c-wvl"/>
                         <outlet property="barCode" destination="UpY-XC-r5T" id="f52-cH-EyL"/>
                         <outlet property="errorLabel" destination="aWX-Og-G9j" id="1w5-so-2UZ"/>
                     </connections>
