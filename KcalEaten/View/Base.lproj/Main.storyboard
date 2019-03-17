@@ -149,6 +149,7 @@
                         <outlet property="activityController" destination="gTK-4F-HWJ" id="Fps-4c-wvl"/>
                         <outlet property="barCode" destination="UpY-XC-r5T" id="f52-cH-EyL"/>
                         <outlet property="errorLabel" destination="aWX-Og-G9j" id="1w5-so-2UZ"/>
+                        <outlet property="searchButton" destination="ZZ9-gV-g9c" id="mZu-Xt-nQU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mx9-u6-evx" userLabel="First Responder" sceneMemberID="firstResponder"/>

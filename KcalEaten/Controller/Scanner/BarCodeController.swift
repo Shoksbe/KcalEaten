@@ -20,6 +20,7 @@ class BarCodeController: UIViewController {
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var barCode: UITextField!
     @IBOutlet weak var activityController: UIActivityIndicatorView!
+    @IBOutlet weak var searchButton: CustomButton!
 }
 
 //------------------------
@@ -73,23 +74,25 @@ extension BarCodeController {
     private func getProduct() {
         
         activityController.startAnimating()
+        searchButton.setTitle("", for: .normal)
         
         _service.getProduct(from: barCode.text!) { (success, product, error) in
-            
-            self.activityController.stopAnimating()
-            
-            guard error == nil,
-                let product = product else {
-                //Alert error
-                    print(error?.localizedDescription)
-                return
+            DispatchQueue.main.async {
+                self.activityController.stopAnimating()
+                self.searchButton.setTitle("Rechercher", for: .normal)
+                
+                guard error == nil,
+                    let product = product else {
+                        self.errorLabel.text = error?.localizedDescription
+                        return
+                }
+                
+                //Lancer la page avec le produit
+                let sb = UIStoryboard(name: "PopUp", bundle: nil)
+                let popUp = sb.instantiateViewController(withIdentifier: "AddConsommationPopUp") as! AddConsommationPopUp
+                popUp.productObject = product
+                self.present(popUp, animated: true)
             }
-            
-            //Lancer la page avec le produit
-            let sb = UIStoryboard(name: "PopUp", bundle: nil)
-            let popUp = sb.instantiateViewController(withIdentifier: "AddConsommationPopUp") as! AddConsommationPopUp
-            popUp.productObject = product
-            self.present(popUp, animated: true)
         }
     }
 }

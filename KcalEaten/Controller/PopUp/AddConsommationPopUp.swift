@@ -99,16 +99,14 @@ extension AddConsommationPopUp {
                 try _service.removeFavorite(from: _product)
                 favoriteButton.setImage(FAVORITE_OFF , for: .normal)
             } catch {
-                print(error.localizedDescription)
-                #warning("Ajouter une alerte")
+                errorLabel.text = error.localizedDescription
             }
         } else {
             do {
                 try _service.addToFavorite(product: _product)
                 favoriteButton.setImage(FAVORITE_ON , for: .normal)
             } catch {
-                print(error.localizedDescription)
-                #warning("Ajouter une alerte")
+                errorLabel.text = error.localizedDescription
             }
         }
     }
