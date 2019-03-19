@@ -114,7 +114,40 @@ class CoreDataTest: XCTestCase {
         XCTAssertEqual(9, consumes.count)
         
     }
-    
+
+    //------------------------
+    //MARK: - Product
+    //------------------------
+
+    func testGivenAProductWhenGetProductThenResultIsNotNil() {
+
+        let context = mockContainer.viewContext
+
+        //Given
+        addFavorite(quantity: 1, into: context)
+
+        //When
+        XCTAssertNoThrow(try? CoreDataHelper(context: context).fetchProduct(from: "0"))
+        let product = try! CoreDataHelper(context: context).fetchProduct(from: "0")
+
+        //Then
+        XCTAssertNotNil(product)
+    }
+
+    func testGivenNoProductWhenGetProductThenResultIsNotNil() {
+
+        let context = mockContainer.viewContext
+
+        //Given
+
+        //When
+        XCTAssertNoThrow(try? CoreDataHelper(context: context).fetchProduct(from: "0"))
+        let product = try! CoreDataHelper(context: context).fetchProduct(from: "0")
+
+        //Then
+        XCTAssertNil(product)
+    }
+
     //------------------------
     //MARK: - Favorite
     //------------------------

@@ -54,8 +54,11 @@ class CoreDataHelper {
 
         //try to get product
         do {
-            let produt = try _context.fetch(request).first
-            return produt
+            let product = try _context.fetch(request).first
+            if product != nil {
+                return product!
+            }
+            return nil
         } catch {
             throw CoreDataError.failedToFetch
         }
