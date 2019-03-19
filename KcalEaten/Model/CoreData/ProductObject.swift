@@ -7,5 +7,17 @@
 //
 
 import CoreData
+import UIKit
 
-class ProductObject: NSManagedObject {}
+class ProductObject: NSManagedObject {
+
+    var image: UIImage {
+
+        if let data = self.imageData, let img = UIImage(data: data) {
+            return img
+        }
+        #warning("Mettre une image par défaut quelque part")
+        return UIImage()
+
+    }
+}
