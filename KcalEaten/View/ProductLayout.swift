@@ -44,6 +44,8 @@ class ProductLayout: UICollectionViewLayout {
 
     override func prepare() {
 
+        cache.removeAll()
+
         guard let collectionView = collectionView else {
             return
         }

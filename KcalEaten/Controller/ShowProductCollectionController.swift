@@ -52,8 +52,6 @@ class ShowProductCollectionController: UIViewController, UICollectionViewDelegat
 extension ShowProductCollectionController: ProductLayoutDelegate {
     func collectionView(_ collectionView: UICollectionView,
                         heightForPhotoAtIndexPath indexPath:IndexPath) -> CGFloat {
-        if imageEnable {
-            return product[indexPath.item].image.size.height + 40
-        }
+        return product[indexPath.item].image.size.height + 40
     }
 }

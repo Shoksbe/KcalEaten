@@ -38,6 +38,30 @@ class CoreDataHelper {
     }
 
 
+    /// Get a specific product
+    ///
+    /// - Parameter barcode: barcode of the desired product
+    /// - Returns: the product
+    /// - Throws: An error if request failed
+    func fetchProduct(from barcode: String) throws -> ProductObject? {
+
+        //Request
+        let request: NSFetchRequest<ProductObject> = ProductObject.fetchRequest()
+
+        //Predicate
+        request.predicate = NSPredicate(format: "barCode == %@", barcode)
+        request.fetchLimit = 1
+
+        //try to get product
+        do {
+            let produt = try _context.fetch(request).first
+            return produt
+        } catch {
+            throw CoreDataError.failedToFetch
+        }
+    }
+
+
     /// Get all favorite product
     ///
     /// - Parameter viewContext: Context

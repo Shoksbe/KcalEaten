@@ -15,6 +15,7 @@ import UIKit
 class BarCodeController: UIViewController {
     
     private let _service = OpenFoodFactService()
+    private let _coreDataService = CoreDataHelper()
     private let _barCodeSize = 13
 
     @IBOutlet weak var errorLabel: UILabel!
@@ -70,29 +71,44 @@ extension BarCodeController {
             }
         }
     }
-    
+
+    ///Get product with barcode from database or openfoodfact
     private func getProduct() {
         
         activityController.startAnimating()
         searchButton.setTitle("", for: .normal)
-        
-        _service.getProduct(from: barCode.text!) { (success, product, error) in
-            DispatchQueue.main.async {
+
+        if let productRequest = try? _coreDataService.fetchProduct(from: barCode.text!) {
+            if let product = productRequest {
                 self.activityController.stopAnimating()
                 self.searchButton.setTitle("Rechercher", for: .normal)
-                
-                guard error == nil,
-                    let product = product else {
-                        self.errorLabel.text = error?.localizedDescription
-                        return
+                showProductPage(product: product)
+            }
+        } else {
+            _service.getProduct(from: barCode.text!) { (success, product, error) in
+                DispatchQueue.main.async {
+                    self.activityController.stopAnimating()
+                    self.searchButton.setTitle("Rechercher", for: .normal)
+
+                    guard error == nil,
+                        let product = product else {
+                            self.errorLabel.text = error?.localizedDescription
+                            return
+                    }
+                    self.showProductPage(product: product)
                 }
-                
-                //Lancer la page avec le produit
-                let sb = UIStoryboard(name: "PopUp", bundle: nil)
-                let popUp = sb.instantiateViewController(withIdentifier: "AddConsommationPopUp") as! AddConsommationPopUp
-                popUp.productObject = product
-                self.present(popUp, animated: true)
             }
         }
+    }
+
+    /// Show propuct in a popup view
+    ///
+    /// - Parameter product: Wich product need to be showing
+    private func showProductPage(product: ProductObject) {
+        //Lancer la page avec le produit
+        let sb = UIStoryboard(name: "PopUp", bundle: nil)
+        let popUp = sb.instantiateViewController(withIdentifier: "AddConsommationPopUp") as! AddConsommationPopUp
+        popUp.productObject = product
+        self.present(popUp, animated: true)
     }
 }
