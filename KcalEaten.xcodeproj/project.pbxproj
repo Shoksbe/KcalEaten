@@ -29,6 +29,7 @@
 		3762F71722390240000CED15 /* OpenFoodFactBarCodeKO.json in Resources */ = {isa = PBXBuildFile; fileRef = 3762F71622390240000CED15 /* OpenFoodFactBarCodeKO.json */; };
 		3762F71922396707000CED15 /* Consume.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3762F71822396707000CED15 /* Consume.swift */; };
 		376613CF2240CFD900DA35E6 /* ShowProductCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376613CE2240CFD900DA35E6 /* ShowProductCollectionController.swift */; };
+		376613D12240FFBA00DA35E6 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376613D02240FFBA00DA35E6 /* Protocols.swift */; };
 		378E3DED223A43FA005CB0D6 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E3DEC223A43FA005CB0D6 /* CoreDataHelper.swift */; };
 		378E79B1223AE5BC00A41E11 /* CoreDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E79B0223AE5BC00A41E11 /* CoreDataTest.swift */; };
 		37DA929F223D85C000F3DFED /* BarCodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DA929E223D85C000F3DFED /* BarCodeController.swift */; };
@@ -75,6 +76,7 @@
 		3762F71622390240000CED15 /* OpenFoodFactBarCodeKO.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = OpenFoodFactBarCodeKO.json; sourceTree = "<group>"; };
 		3762F71822396707000CED15 /* Consume.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consume.swift; sourceTree = "<group>"; };
 		376613CE2240CFD900DA35E6 /* ShowProductCollectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowProductCollectionController.swift; sourceTree = "<group>"; };
+		376613D02240FFBA00DA35E6 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		378E3DEC223A43FA005CB0D6 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		378E79B0223AE5BC00A41E11 /* CoreDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTest.swift; sourceTree = "<group>"; };
 		37DA929E223D85C000F3DFED /* BarCodeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCodeController.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				378E79AD2238537C00A41E11 /* CoreData */,
 				3762F7142238FB2C000CED15 /* CustomError.swift */,
 				3727365B223E5031003483FD /* Constants.swift */,
+				376613D02240FFBA00DA35E6 /* Protocols.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				3762F6FD2237E9E7000CED15 /* OpenFoodFactService.swift in Sources */,
 				3762F70A223841DC000CED15 /* ProductObject.swift in Sources */,
 				37EF2754223FE00E0045CD53 /* ProductLayout.swift in Sources */,
+				376613D12240FFBA00DA35E6 /* Protocols.swift in Sources */,
 				37DA92A1223D868E00F3DFED /* ScannerPageController.swift in Sources */,
 				37EF275A223FF4380045CD53 /* ProductCell.swift in Sources */,
 				37273660223EBF62003483FD /* CustomButton.swift in Sources */,

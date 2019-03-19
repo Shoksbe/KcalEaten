@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol ProductLayoutDelegate: class {
-    func collectionView(_ collectionView:UICollectionView, heightForPhotoAtIndexPath indexPath:IndexPath) -> CGFloat
-}
-
 class ProductLayout: UICollectionViewLayout {
 
     // Delegate to take heigth of image's product

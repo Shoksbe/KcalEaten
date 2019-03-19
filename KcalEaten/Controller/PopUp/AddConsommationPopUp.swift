@@ -12,7 +12,8 @@ import UIKit
 //MARK: - Outlets & variables
 //----------------------------
 class AddConsommationPopUp: UIViewController {
-    
+
+    var delegate: PopupDelegate?
     var productObject: ProductObject?
     private var _product: ProductObject!
     private let _service = CoreDataHelper()
@@ -78,11 +79,7 @@ extension AddConsommationPopUp {
         }
         
         //Check image for product
-        if let data = _product.imageData, let image = UIImage(data: data) {
-            productImage.image = image
-        } else {
-            //Default image product
-        }
+        productImage.image = _product.image
         
         //Check title product
         if let productName = _product.name {
@@ -109,6 +106,8 @@ extension AddConsommationPopUp {
                 errorLabel.text = error.localizedDescription
             }
         }
+
+        delegate?.productHaveChange()
     }
     
     private func checkQuantityTextField() throws -> Int {
