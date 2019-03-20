@@ -78,12 +78,11 @@ extension BarCodeController {
         activityController.startAnimating()
         searchButton.setTitle("", for: .normal)
 
-        if let productRequest = try? _coreDataService.fetchProduct(from: barCode.text!) {
-            if let product = productRequest {
-                self.activityController.stopAnimating()
-                self.searchButton.setTitle("Rechercher", for: .normal)
-                showProductPage(product: product)
-            }
+        if let productRequest = try? _coreDataService.fetchProduct(from: barCode.text!),
+            let product = productRequest {
+            self.activityController.stopAnimating()
+            self.searchButton.setTitle("Rechercher", for: .normal)
+            showProductPage(product: product)
         } else {
             _service.getProduct(from: barCode.text!) { (success, product, error) in
                 DispatchQueue.main.async {
