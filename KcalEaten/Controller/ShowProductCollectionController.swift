@@ -76,6 +76,6 @@ extension ShowProductCollectionController {
 extension ShowProductCollectionController: ProductLayoutDelegate {
     func collectionView(_ collectionView: UICollectionView,
                         heightForPhotoAtIndexPath indexPath:IndexPath) -> CGFloat {
-        return product[indexPath.item].image.size.height + 40
+        return product[indexPath.item].image.size.height
     }
 }

@@ -30,6 +30,8 @@
 		3762F71922396707000CED15 /* Consume.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3762F71822396707000CED15 /* Consume.swift */; };
 		376613CF2240CFD900DA35E6 /* ShowProductCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376613CE2240CFD900DA35E6 /* ShowProductCollectionController.swift */; };
 		376613D12240FFBA00DA35E6 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376613D02240FFBA00DA35E6 /* Protocols.swift */; };
+		376613D32242A10400DA35E6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376613D22242A10400DA35E6 /* Extensions.swift */; };
+		378DCB95224134D2008C835C /* ConsumeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378DCB94224134D2008C835C /* ConsumeController.swift */; };
 		378E3DED223A43FA005CB0D6 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E3DEC223A43FA005CB0D6 /* CoreDataHelper.swift */; };
 		378E79B1223AE5BC00A41E11 /* CoreDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E79B0223AE5BC00A41E11 /* CoreDataTest.swift */; };
 		37DA929F223D85C000F3DFED /* BarCodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DA929E223D85C000F3DFED /* BarCodeController.swift */; };
@@ -77,6 +79,8 @@
 		3762F71822396707000CED15 /* Consume.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consume.swift; sourceTree = "<group>"; };
 		376613CE2240CFD900DA35E6 /* ShowProductCollectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowProductCollectionController.swift; sourceTree = "<group>"; };
 		376613D02240FFBA00DA35E6 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		376613D22242A10400DA35E6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		378DCB94224134D2008C835C /* ConsumeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumeController.swift; sourceTree = "<group>"; };
 		378E3DEC223A43FA005CB0D6 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		378E79B0223AE5BC00A41E11 /* CoreDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTest.swift; sourceTree = "<group>"; };
 		37DA929E223D85C000F3DFED /* BarCodeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCodeController.swift; sourceTree = "<group>"; };
@@ -184,6 +188,7 @@
 				3762F7142238FB2C000CED15 /* CustomError.swift */,
 				3727365B223E5031003483FD /* Constants.swift */,
 				376613D02240FFBA00DA35E6 /* Protocols.swift */,
+				376613D22242A10400DA35E6 /* Extensions.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -195,6 +200,7 @@
 				37DA92A2223D8F8A00F3DFED /* Scanner */,
 				37EF2755223FE90E0045CD53 /* FavoriteController.swift */,
 				376613CE2240CFD900DA35E6 /* ShowProductCollectionController.swift */,
+				378DCB94224134D2008C835C /* ConsumeController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -354,6 +360,7 @@
 				3762F7082238401E000CED15 /* KcalEaten.xcdatamodeld in Sources */,
 				3727365E223E7BEE003483FD /* CustomPopUp.swift in Sources */,
 				3727365C223E5031003483FD /* Constants.swift in Sources */,
+				376613D32242A10400DA35E6 /* Extensions.swift in Sources */,
 				3762F70322380906000CED15 /* CameraController.swift in Sources */,
 				376613CF2240CFD900DA35E6 /* ShowProductCollectionController.swift in Sources */,
 				378E3DED223A43FA005CB0D6 /* CoreDataHelper.swift in Sources */,
@@ -365,6 +372,7 @@
 				37EF275A223FF4380045CD53 /* ProductCell.swift in Sources */,
 				37273660223EBF62003483FD /* CustomButton.swift in Sources */,
 				37EF2756223FE90E0045CD53 /* FavoriteController.swift in Sources */,
+				378DCB95224134D2008C835C /* ConsumeController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

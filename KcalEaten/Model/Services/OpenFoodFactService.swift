@@ -77,7 +77,7 @@ class OpenFoodFactService {
         let productObject = ProductObject(context: AppDelegate.viewContext)
         productObject.barCode = product.barCode
         productObject.imageData = imageData
-        productObject.kCalByGrams = Int32(kcalByGrams)
+        productObject.kCalByGrams = kcalByGrams
         productObject.name = product.name
 
         return productObject

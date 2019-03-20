@@ -10,3 +10,4 @@ import UIKit
 
 let FAVORITE_ON: UIImage = UIImage(named: "favoriteOn")!
 let FAVORITE_OFF: UIImage = UIImage(named: "favoriteOff")!
+let LOCAL: Locale = Locale(identifier: "fr_BE")
