@@ -31,6 +31,8 @@
 		376613CF2240CFD900DA35E6 /* ShowProductCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376613CE2240CFD900DA35E6 /* ShowProductCollectionController.swift */; };
 		376613D12240FFBA00DA35E6 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376613D02240FFBA00DA35E6 /* Protocols.swift */; };
 		376613D32242A10400DA35E6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376613D22242A10400DA35E6 /* Extensions.swift */; };
+		376613D52242AB3100DA35E6 /* ConsumeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376613D42242AB3100DA35E6 /* ConsumeCell.swift */; };
+		376613D72243904C00DA35E6 /* VerticalAligneLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376613D62243904C00DA35E6 /* VerticalAligneLabel.swift */; };
 		378DCB95224134D2008C835C /* ConsumeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378DCB94224134D2008C835C /* ConsumeController.swift */; };
 		378E3DED223A43FA005CB0D6 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E3DEC223A43FA005CB0D6 /* CoreDataHelper.swift */; };
 		378E79B1223AE5BC00A41E11 /* CoreDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E79B0223AE5BC00A41E11 /* CoreDataTest.swift */; };
@@ -80,6 +82,8 @@
 		376613CE2240CFD900DA35E6 /* ShowProductCollectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowProductCollectionController.swift; sourceTree = "<group>"; };
 		376613D02240FFBA00DA35E6 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		376613D22242A10400DA35E6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		376613D42242AB3100DA35E6 /* ConsumeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumeCell.swift; sourceTree = "<group>"; };
+		376613D62243904C00DA35E6 /* VerticalAligneLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalAligneLabel.swift; sourceTree = "<group>"; };
 		378DCB94224134D2008C835C /* ConsumeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumeController.swift; sourceTree = "<group>"; };
 		378E3DEC223A43FA005CB0D6 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		378E79B0223AE5BC00A41E11 /* CoreDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTest.swift; sourceTree = "<group>"; };
@@ -170,6 +174,8 @@
 			isa = PBXGroup;
 			children = (
 				3762F6DC2237E39D000CED15 /* Main.storyboard */,
+				376613D42242AB3100DA35E6 /* ConsumeCell.swift */,
+				376613D62243904C00DA35E6 /* VerticalAligneLabel.swift */,
 				37273656223E3E0C003483FD /* PopUp.storyboard */,
 				3727365D223E7BEE003483FD /* CustomPopUp.swift */,
 				3727365F223EBF62003483FD /* CustomButton.swift */,
@@ -364,6 +370,7 @@
 				3762F70322380906000CED15 /* CameraController.swift in Sources */,
 				376613CF2240CFD900DA35E6 /* ShowProductCollectionController.swift in Sources */,
 				378E3DED223A43FA005CB0D6 /* CoreDataHelper.swift in Sources */,
+				376613D52242AB3100DA35E6 /* ConsumeCell.swift in Sources */,
 				3762F6FD2237E9E7000CED15 /* OpenFoodFactService.swift in Sources */,
 				3762F70A223841DC000CED15 /* ProductObject.swift in Sources */,
 				37EF2754223FE00E0045CD53 /* ProductLayout.swift in Sources */,
@@ -372,6 +379,7 @@
 				37EF275A223FF4380045CD53 /* ProductCell.swift in Sources */,
 				37273660223EBF62003483FD /* CustomButton.swift in Sources */,
 				37EF2756223FE90E0045CD53 /* FavoriteController.swift in Sources */,
+				376613D72243904C00DA35E6 /* VerticalAligneLabel.swift in Sources */,
 				378DCB95224134D2008C835C /* ConsumeController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

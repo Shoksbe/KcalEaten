@@ -26,7 +26,7 @@ struct Product: Decodable {
 
     enum CodingKeys: String, CodingKey {
         case imageURL = "image_url"
-        case name = "product_name_fr"
+        case name = "product_name"
         case barCode = "code"
         case nutriments
     }
