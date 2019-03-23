@@ -8,11 +8,6 @@
 
 import UIKit
 
-protocol PopupDelegate {
-    func productHaveChange()
-    func showPopUp(product: ProductObject)
-}
-
 protocol ProductLayoutDelegate: class {
     func collectionView(_ collectionView:UICollectionView, heightForPhotoAtIndexPath indexPath:IndexPath) -> CGFloat
 }

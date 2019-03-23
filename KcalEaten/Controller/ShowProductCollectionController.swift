@@ -15,7 +15,6 @@ class ShowProductCollectionController: UIViewController, UICollectionViewDelegat
 
     @IBOutlet weak var collectionView: UICollectionView!
 
-    var delegate: PopupDelegate?
     var product: [ProductObject]?
 }
 
@@ -75,7 +74,7 @@ extension ShowProductCollectionController {
     //Item did select
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let product = self.product?[indexPath.item] {
-            delegate?.showPopUp(product: product)
+            showPopUp(product: product)
         }
     }
 
@@ -103,12 +102,20 @@ extension ShowProductCollectionController: ProductLayoutDelegate {
 //MARK: - Methods
 //------------------------
 extension ShowProductCollectionController {
-
+    
     /// reload tableView
     ///
     /// - Parameter products: Products to load
     func reload(products: [ProductObject]) {
         product = products
         collectionView.reloadData()
+    }
+    
+    func showPopUp(product: ProductObject) {
+        //Lancer la page avec le produit
+        let sb = UIStoryboard(name: "PopUp", bundle: nil)
+        let popUp = sb.instantiateViewController(withIdentifier: "AddConsommationPopUp") as! AddConsommationPopUp
+        popUp.productObject = product
+        self.present(popUp, animated: true)
     }
 }

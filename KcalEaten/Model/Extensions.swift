@@ -26,3 +26,7 @@ extension String {
         return formatter.date(from: self) ?? Date()
     }
 }
+
+extension Notification.Name {
+    static let favoriteStateOfProductDidChange = Notification.Name("favoriteStateOfProductDidChange")
+}

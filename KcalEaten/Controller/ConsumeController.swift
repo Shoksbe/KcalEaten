@@ -116,30 +116,11 @@ extension ConsumeController: UITableViewDataSource, UITableViewDelegate {
             }
         }
         performSegue(withIdentifier: "showConsumeDetails", sender: products)
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "showConsumeDetails" else { return }
         guard let destination = segue.destination as? ShowProductCollectionController else { return }
-        destination.delegate = self
         destination.product = sender as? [ProductObject]
-    }
-}
-//------------------------
-//MARK: - Popup delegate
-//------------------------
-extension ConsumeController: PopupDelegate {
-    func productHaveChange() {
-        #warning("rendre la fonction optionnelle")
-    }
-    
-    func showPopUp(product: ProductObject) {
-        //Lancer la page avec le produit
-        let sb = UIStoryboard(name: "PopUp", bundle: nil)
-        let popUp = sb.instantiateViewController(withIdentifier: "AddConsommationPopUp") as! AddConsommationPopUp
-        popUp.productObject = product
-        popUp.delegate = self
-        self.present(popUp, animated: true)
     }
 }

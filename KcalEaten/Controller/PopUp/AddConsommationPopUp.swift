@@ -13,7 +13,6 @@ import UIKit
 //----------------------------
 class AddConsommationPopUp: UIViewController {
 
-    var delegate: PopupDelegate?
     var productObject: ProductObject?
     private var _product: ProductObject!
     private let _service = CoreDataHelper()
@@ -39,7 +38,6 @@ extension AddConsommationPopUp {
     }
     
     @IBAction func addDidTap(_ sender: Any) {
-        //var quantity: Int
         do {
             let quantity = try checkQuantityTextField()
             try _service.addConsume(quantity: quantity, product: _product)
@@ -107,7 +105,7 @@ extension AddConsommationPopUp {
             }
         }
 
-        delegate?.productHaveChange()
+        NotificationCenter.default.post(name: .favoriteStateOfProductDidChange, object: nil)
     }
     
     private func checkQuantityTextField() throws -> Int {
