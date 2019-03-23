@@ -16,11 +16,7 @@ class ShowProductCollectionController: UIViewController, UICollectionViewDelegat
     @IBOutlet weak var collectionView: UICollectionView!
 
     var delegate: PopupDelegate?
-    var product: [ProductObject]! {
-        didSet {
-            collectionView.reloadData()
-        }
-    }
+    var product: [ProductObject]?
 }
 
 //------------------
@@ -44,29 +40,43 @@ extension ShowProductCollectionController {
 
     //Number of item
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return product.count
+        guard let count = product?.count else { return 0 }
+        return count
     }
 
     //Configure Cell
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
+        //Create cell
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as! ProductCell
 
-        cell.product = product[indexPath.item]
+        //Get product a index
+        guard let product = product?[indexPath.item] else {
+            return UICollectionViewCell()
+        }
+        
+        cell.product = product
 
         return cell
     }
 
     //Size for item
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let itemSize = (collectionView.frame.width - (collectionView.contentInset.left + collectionView.contentInset.right + 10)) / 2
+        
+        let numberColones: CGFloat = 2
+        let collectionViewInset: CGFloat = collectionView.contentInset.left + collectionView.contentInset.right
+        let collectionWidth: CGFloat = collectionView.frame.width
+
+        let itemSize = (collectionWidth - (collectionViewInset)) / numberColones
+        
         return CGSize(width: itemSize, height: itemSize)
     }
 
     //Item did select
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let product = self.product[indexPath.item]
-        delegate?.showPopUp(product: product)
+        if let product = self.product?[indexPath.item] {
+            delegate?.showPopUp(product: product)
+        }
     }
 
 }
@@ -76,6 +86,29 @@ extension ShowProductCollectionController {
 extension ShowProductCollectionController: ProductLayoutDelegate {
     func collectionView(_ collectionView: UICollectionView,
                         heightForPhotoAtIndexPath indexPath:IndexPath) -> CGFloat {
-        return product[indexPath.item].image.size.height
+        
+        guard let productHeight = product?[indexPath.item].image.size.height else {
+            return 0
+        }
+        
+        #warning("il arrive que l'image n'ai pas de hauteur, cela crée un conflit dans les contrainte")
+        if productHeight == 0 {
+            print(productHeight)
+            return 100
+        }
+        return productHeight
+    }
+}
+//------------------------
+//MARK: - Methods
+//------------------------
+extension ShowProductCollectionController {
+
+    /// reload tableView
+    ///
+    /// - Parameter products: Products to load
+    func reload(products: [ProductObject]) {
+        product = products
+        collectionView.reloadData()
     }
 }

@@ -45,8 +45,6 @@ extension ConsumeController {
             _consumeGroupedByDate.append(values ?? [])
         }
     }
-
-    
 }
 
 //------------------
@@ -63,6 +61,12 @@ extension ConsumeController {
         _consumesFromCoreData = try? _coreDataService.fetchConsume()
         attemptToAssembleGroupedConsume()
         tableview.reloadData()
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+        navigationController?.navigationBar.topItem?.title = "Détails du jour"
     }
 }
 
@@ -102,5 +106,40 @@ extension ConsumeController: UITableViewDataSource, UITableViewDelegate {
         cell.setup(dateString: dateString, countOfCalorie: countOfCalorie, quantityOfProduct :quantityOfProduct)
 
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var products = [ProductObject]()
+        _consumeGroupedByDate[indexPath.section].forEach { (consume) in
+            if let product = consume.product {
+                products.append(product)
+            }
+        }
+        performSegue(withIdentifier: "showConsumeDetails", sender: products)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "showConsumeDetails" else { return }
+        guard let destination = segue.destination as? ShowProductCollectionController else { return }
+        destination.delegate = self
+        destination.product = sender as? [ProductObject]
+    }
+}
+//------------------------
+//MARK: - Popup delegate
+//------------------------
+extension ConsumeController: PopupDelegate {
+    func productHaveChange() {
+        #warning("rendre la fonction optionnelle")
+    }
+    
+    func showPopUp(product: ProductObject) {
+        //Lancer la page avec le produit
+        let sb = UIStoryboard(name: "PopUp", bundle: nil)
+        let popUp = sb.instantiateViewController(withIdentifier: "AddConsommationPopUp") as! AddConsommationPopUp
+        popUp.productObject = product
+        popUp.delegate = self
+        self.present(popUp, animated: true)
     }
 }
