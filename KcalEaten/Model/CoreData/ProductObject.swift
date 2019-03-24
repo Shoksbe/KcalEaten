@@ -13,10 +13,14 @@ class ProductObject: NSManagedObject {
 
     var image: UIImage {
 
-        if let data = self.imageData, let img = UIImage(data: data) {
+        if let data = self.imageData, let img = UIImage(data: data), img.size.height > 50 {
             return img
+        } 
+
+        if let defaultImage = UIImage(named: "DefaultImage") {
+            return defaultImage
         }
-        #warning("Mettre une image par défaut quelque part")
+        
         return UIImage()
 
     }

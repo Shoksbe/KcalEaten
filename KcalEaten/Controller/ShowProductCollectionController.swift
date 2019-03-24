@@ -90,11 +90,6 @@ extension ShowProductCollectionController: ProductLayoutDelegate {
             return 0
         }
         
-        #warning("il arrive que l'image n'ai pas de hauteur, cela crée un conflit dans les contrainte")
-        if productHeight == 0 {
-            print(productHeight)
-            return 100
-        }
         return productHeight
     }
 }
