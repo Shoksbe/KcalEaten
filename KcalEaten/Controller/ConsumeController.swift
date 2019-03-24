@@ -17,7 +17,7 @@ class ConsumeController: UIViewController {
     private var _consumeGroupedByDate = [[Consume]]()
     private var _consumesFromCoreData: [Consume]!
     private let _coreDataService = CoreDataHelper()
-    
+    private var _dateOfConsumeClicked: String!
 }
 
 //---------------
@@ -70,7 +70,7 @@ extension ConsumeController {
     
     override func viewWillDisappear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(false, animated: animated)
-        navigationController?.navigationBar.topItem?.title = "Détails du jour"
+        navigationController?.navigationBar.topItem?.title = _dateOfConsumeClicked
     }
 }
 
@@ -99,7 +99,10 @@ extension ConsumeController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        _dateOfConsumeClicked = _consumeGroupedByDate[indexPath.section].first?.date?.toString()
+        
         var products = [ProductObject]()
+        
         _consumeGroupedByDate[indexPath.section].forEach { (consume) in
             if let product = consume.product {
                 products.append(product)
