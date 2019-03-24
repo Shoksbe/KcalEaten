@@ -110,8 +110,10 @@
                                                                 <constraint firstItem="biZ-QA-IFS" firstAttribute="leading" secondItem="DtH-qf-AQw" secondAttribute="leading" id="oZC-uO-f8w"/>
                                                             </constraints>
                                                         </view>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="barCodeIcon" translatesAutoresizingMaskIntoConstraints="NO" id="sTJ-1P-fWx">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Equal" translatesAutoresizingMaskIntoConstraints="NO" id="sTJ-1P-fWx">
                                                             <rect key="frame" x="157.5" y="43.5" width="30" height="29"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="tintColor" name="COrange"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="sTJ-1P-fWx" secondAttribute="height" constant="1" id="CmR-rR-bqb"/>
                                                             </constraints>
@@ -457,6 +459,7 @@
     </scenes>
     <resources>
         <image name="BarCodeLogo" width="487" height="487"/>
+        <image name="Equal" width="24" height="24"/>
         <image name="barCodeIcon" width="75" height="75"/>
         <namedColor name="COrange">
             <color red="0.85000002384185791" green="0.35499998927116394" blue="0.26199999451637268" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
