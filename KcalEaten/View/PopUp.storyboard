@@ -154,7 +154,9 @@
                         <viewLayoutGuide key="safeArea" id="ruo-3h-aJL"/>
                     </view>
                     <connections>
+                        <outlet property="Popup" destination="GEq-q3-SWz" id="wwI-sT-4Yr"/>
                         <outlet property="articleTitle" destination="d3x-QJ-zwe" id="481-iV-KoB"/>
+                        <outlet property="centerViewConstraint" destination="36l-DQ-d8O" id="fWv-gl-UQ0"/>
                         <outlet property="errorLabel" destination="IwC-Tv-UVQ" id="yYb-wo-K9J"/>
                         <outlet property="favoriteButton" destination="2Ut-r2-FdV" id="RG1-Gg-JPx"/>
                         <outlet property="productImage" destination="5MQ-6J-d9k" id="Sca-cU-RVI"/>

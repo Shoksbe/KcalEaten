@@ -12,7 +12,7 @@ import UIKit
 //MARK: - Outlets & variables
 //----------------------------
 
-class BarCodeController: UIViewController {
+class BarCodeController: MoveableController {
     
     private let _service = OpenFoodFactService()
     private let _coreDataService = CoreDataHelper()
@@ -22,12 +22,28 @@ class BarCodeController: UIViewController {
     @IBOutlet weak var barCode: UITextField!
     @IBOutlet weak var activityController: UIActivityIndicatorView!
     @IBOutlet weak var searchButton: CustomButton!
+    @IBOutlet weak var container: UIView!
+    @IBOutlet weak var centerConstraint: NSLayoutConstraint!
+    
+    override func showKey(notification: Notification) {
+        super.showKey(notification: notification)
+        checkHeight(container, constraint: centerConstraint)
+    }
+    
+    override func hideKey(notification: Notification) {
+        super.hideKey(notification:  notification)
+        animation(0, centerConstraint)
+    }
 }
 
 //------------------------
 //MARK: - Life cycle
 //------------------------
 extension BarCodeController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        addTap()
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         errorLabel.text = ""

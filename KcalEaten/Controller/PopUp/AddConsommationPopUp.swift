@@ -11,7 +11,7 @@ import UIKit
 //----------------------------
 //MARK: - Outlets & variables
 //----------------------------
-class AddConsommationPopUp: UIViewController {
+class AddConsommationPopUp: MoveableController {
 
     var productObject: ProductObject?
     private var _product: ProductObject!
@@ -22,6 +22,18 @@ class AddConsommationPopUp: UIViewController {
     @IBOutlet weak var articleTitle: UILabel!
     @IBOutlet weak var quantityTextField: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var centerViewConstraint: NSLayoutConstraint!
+    @IBOutlet weak var Popup: CustomPopUp!
+    
+    override func showKey(notification: Notification) {
+        super.showKey(notification: notification)
+        checkHeight(Popup, constraint: centerViewConstraint)
+    }
+    
+    override func hideKey(notification: Notification) {
+        super.hideKey(notification:  notification)
+        animation(0, centerViewConstraint)
+    }
 }
 
 //------------------------
@@ -54,6 +66,9 @@ extension AddConsommationPopUp {
 extension AddConsommationPopUp {
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        addTap()
+        
         if productObject != nil {
             _product = productObject!
         } else {
@@ -120,4 +135,11 @@ extension AddConsommationPopUp {
         
         return quantityInt
     }
+}
+
+//--------------------------
+//MARK: - MoveableController
+//--------------------------
+extension AddConsommationPopUp {
+
 }

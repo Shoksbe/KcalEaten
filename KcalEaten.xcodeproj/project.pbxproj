@@ -12,6 +12,7 @@
 		3727365C223E5031003483FD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3727365B223E5031003483FD /* Constants.swift */; };
 		3727365E223E7BEE003483FD /* CustomPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3727365D223E7BEE003483FD /* CustomPopUp.swift */; };
 		37273660223EBF62003483FD /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3727365F223EBF62003483FD /* CustomButton.swift */; };
+		372CF1BA2247EE7D009E4DD8 /* MoveableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372CF1B92247EE7D009E4DD8 /* MoveableController.swift */; };
 		3762F6D92237E39D000CED15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3762F6D82237E39D000CED15 /* AppDelegate.swift */; };
 		3762F6DE2237E39D000CED15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3762F6DC2237E39D000CED15 /* Main.storyboard */; };
 		3762F6E02237E39E000CED15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3762F6DF2237E39E000CED15 /* Assets.xcassets */; };
@@ -59,6 +60,7 @@
 		3727365B223E5031003483FD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3727365D223E7BEE003483FD /* CustomPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopUp.swift; sourceTree = "<group>"; };
 		3727365F223EBF62003483FD /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		372CF1B92247EE7D009E4DD8 /* MoveableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveableController.swift; sourceTree = "<group>"; };
 		3762F6D52237E39D000CED15 /* KcalEaten.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KcalEaten.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3762F6D82237E39D000CED15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3762F6DD2237E39D000CED15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				37EF2755223FE90E0045CD53 /* FavoriteController.swift */,
 				378DCB94224134D2008C835C /* ConsumeController.swift */,
 				376613CE2240CFD900DA35E6 /* ShowProductCollectionController.swift */,
+				372CF1B92247EE7D009E4DD8 /* MoveableController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 				37DA92A1223D868E00F3DFED /* ScannerPageController.swift in Sources */,
 				37EF275A223FF4380045CD53 /* ProductCell.swift in Sources */,
 				37273660223EBF62003483FD /* CustomButton.swift in Sources */,
+				372CF1BA2247EE7D009E4DD8 /* MoveableController.swift in Sources */,
 				37EF2756223FE90E0045CD53 /* FavoriteController.swift in Sources */,
 				376613D72243904C00DA35E6 /* VerticalAligneLabel.swift in Sources */,
 				378DCB95224134D2008C835C /* ConsumeController.swift in Sources */,
