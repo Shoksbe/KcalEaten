@@ -45,6 +45,12 @@ extension ConsumeController {
             _consumeGroupedByDate.append(values ?? [])
         }
     }
+    
+    private func populateTableView() {
+        _consumesFromCoreData = try? _coreDataService.fetchConsume()
+        attemptToAssembleGroupedConsume()
+        tableview.reloadData()
+    }
 }
 
 //------------------
@@ -58,9 +64,7 @@ extension ConsumeController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        _consumesFromCoreData = try? _coreDataService.fetchConsume()
-        attemptToAssembleGroupedConsume()
-        tableview.reloadData()
+        populateTableView()
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
@@ -88,22 +92,8 @@ extension ConsumeController: UITableViewDataSource, UITableViewDelegate {
         //Creating cell
         let cell = tableView.dequeueReusableCell(withIdentifier: "consumeCell", for: indexPath) as! ConsumeCell
 
-
-        //Date for consume
-        let dateString = _consumeGroupedByDate[indexPath.section].first?.date?.toString() ?? ""
-
-        //calculating the total number of calories consumed for this date
-        var countOfCalorie = 0.0
-        _consumeGroupedByDate[indexPath.section].forEach { (consume) in
-            countOfCalorie += (consume.product?.kCalByGrams)! * Double(consume.quantity)
-        }
-
-        //calculation of the number of products consumed on this date
-        var quantityOfProduct = 0
-        quantityOfProduct += _consumeGroupedByDate[indexPath.section].count
-
         //Set cell
-        cell.setup(dateString: dateString, countOfCalorie: countOfCalorie, quantityOfProduct :quantityOfProduct)
+        cell.setup(dayConsume: _consumeGroupedByDate[indexPath.section])
 
         return cell
     }
@@ -118,6 +108,19 @@ extension ConsumeController: UITableViewDataSource, UITableViewDelegate {
         performSegue(withIdentifier: "showConsumeDetails", sender: products)
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            _consumeGroupedByDate[indexPath.section].forEach { (consume) in
+                try? _coreDataService.delete(consume: consume)
+            }
+            populateTableView()
+        }
+    }
+}
+//------------------------
+//MARK: - Navigation
+//------------------------
+extension ConsumeController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "showConsumeDetails" else { return }
         guard let destination = segue.destination as? ShowProductCollectionController else { return }

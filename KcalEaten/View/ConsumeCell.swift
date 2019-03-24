@@ -34,7 +34,20 @@ class ConsumeCell: UITableViewCell {
         productSubtitle.verticalAlignment = .top
     }
 
-    func setup(dateString: String, countOfCalorie: Double, quantityOfProduct: Int) {
+    func setup(dayConsume: [Consume]) {
+        
+        //Date for consume
+        let dateString = dayConsume.first?.date?.toString() ?? ""
+        
+        //calculating the total number of calories consumed for this date
+        var countOfCalorie = 0.0
+        dayConsume.forEach { (consume) in
+            countOfCalorie += (consume.product?.kCalByGrams)! * Double(consume.quantity)
+        }
+        
+        //calculation of the number of products consumed on this date
+        var quantityOfProduct = 0
+        quantityOfProduct += dayConsume.count
         
         calorieLabel.text = String(countOfCalorie)
         quantityOfProductLabel.text = String(quantityOfProduct)
