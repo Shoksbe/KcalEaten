@@ -10,4 +10,5 @@ import UIKit
 
 let FAVORITE_ON: UIImage = UIImage(named: "favoriteOn")!
 let FAVORITE_OFF: UIImage = UIImage(named: "favoriteOff")!
+let DATE_FORMAT: String = "d MMM yyyy"
 let LOCAL: Locale = Locale(identifier: "fr_BE")

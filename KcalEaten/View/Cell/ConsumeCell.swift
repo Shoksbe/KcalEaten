@@ -52,7 +52,7 @@ class ConsumeCell: UITableViewCell {
         var quantityOfProduct = 0
         quantityOfProduct += dayConsume.count
         
-        calorieLabel.text = String(countOfCalorie)
+        calorieLabel.text = String(Int(countOfCalorie))
         quantityOfProductLabel.text = String(quantityOfProduct)
         dateLabel.text = dateString
 

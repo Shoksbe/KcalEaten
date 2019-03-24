@@ -21,7 +21,7 @@ extension Date {
 extension String {
     func toDate() -> Date {
         let formatter = DateFormatter()
-        formatter.dateFormat = "d MMM yyyy"
+        formatter.dateFormat = DATE_FORMAT
         formatter.locale = LOCAL
         return formatter.date(from: self) ?? Date()
     }
