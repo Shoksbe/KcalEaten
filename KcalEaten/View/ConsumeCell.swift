@@ -17,6 +17,7 @@ class ConsumeCell: UITableViewCell {
     @IBOutlet weak var productContainer: UIView!
     @IBOutlet weak var quantityOfProductLabel: VerticalAlignLabel!
     @IBOutlet weak var productSubtitle: VerticalAlignLabel!
+    @IBOutlet weak var container: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,6 +27,8 @@ class ConsumeCell: UITableViewCell {
         calorieContainer.clipsToBounds = true
         productContainer.layer.cornerRadius = 5
         productContainer.clipsToBounds = true
+        container.layer.cornerRadius = 5
+        container.clipsToBounds = true
 
         //Set vertical align
         calorieLabel.verticalAlignment = .bottom
