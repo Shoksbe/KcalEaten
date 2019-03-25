@@ -27,6 +27,10 @@ class CameraController: UIViewController {
 //---------------
 extension CameraController {
 
+    @objc private func launchCaptureSession() {
+        _captureSession.startRunning()
+    }
+    
     private func configureSession() {
         _captureSession = AVCaptureSession()
 
@@ -78,7 +82,6 @@ extension CameraController {
                 guard error == nil,
                     let product = product else {
                         SHOW_FAIL_POPUP(errorDescription: error!.localizedDescription, controller: self)
-                        #warning("créer un moyen de savoir quand la popup disparait afin de relancer la capture session")
                         return
                 }
                 SHOW_PRODUCT_PAGE(product: product, controller: self)
@@ -96,6 +99,7 @@ extension CameraController {
         super.viewDidLoad()
         configureSession()
         _captureSession.startRunning()
+        NotificationCenter.default.addObserver(self, selector: #selector(launchCaptureSession), name: .popupWillDisappear, object: nil)
     }
 
     override func viewWillAppear(_ animated: Bool) {

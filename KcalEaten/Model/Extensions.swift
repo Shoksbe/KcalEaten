@@ -29,4 +29,5 @@ extension String {
 
 extension Notification.Name {
     static let favoriteStateOfProductDidChange = Notification.Name("favoriteStateOfProductDidChange")
+    static let popupWillDisappear = Notification.Name("popupWillDisappear")
 }

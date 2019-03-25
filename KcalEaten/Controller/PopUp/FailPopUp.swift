@@ -32,6 +32,7 @@ extension FailPopUp {
 //---------------
 extension FailPopUp {
     @IBAction func cancelButtonDidTap() {
+        NotificationCenter.default.post(name: .popupWillDisappear, object: nil)
         self.dismiss(animated: true, completion: nil)
     }
 }

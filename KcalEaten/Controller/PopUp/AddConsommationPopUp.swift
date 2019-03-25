@@ -46,6 +46,7 @@ extension AddConsommationPopUp {
     }
     
     @IBAction func cancerDidTap(_ sender: Any) {
+        NotificationCenter.default.post(name: .popupWillDisappear, object: nil)
         dismiss(animated: true, completion: nil)
     }
     
