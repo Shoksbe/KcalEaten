@@ -14,6 +14,7 @@ import UIKit
 class AddConsommationPopUp: MoveableController {
 
     var productObject: ProductObject?
+    var callerController: UIViewController!
     private var _product: ProductObject!
     private let _service = CoreDataHelper()
 
@@ -46,7 +47,9 @@ extension AddConsommationPopUp {
     }
     
     @IBAction func cancerDidTap(_ sender: Any) {
-        NotificationCenter.default.post(name: .popupWillDisappear, object: nil)
+        if callerController is CameraController {
+            NotificationCenter.default.post(name: .popupWillDisappear, object: nil)
+        }
         dismiss(animated: true, completion: nil)
     }
     

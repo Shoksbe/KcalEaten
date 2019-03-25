@@ -21,13 +21,21 @@ func SHOW_PRODUCT_PAGE(product: ProductObject, controller: UIViewController) {
     let sb = UIStoryboard(name: "PopUp", bundle: nil)
     let popUp = sb.instantiateViewController(withIdentifier: "AddConsommationPopUp") as! AddConsommationPopUp
     popUp.productObject = product
+    popUp.callerController = controller
     controller.present(popUp, animated: true)
 }
 
+
+/// Show a popup with an error description
+///
+/// - Parameters:
+///   - errorDescription: The string description of an error
+///   - controller: which controller call the popup
 func SHOW_FAIL_POPUP(errorDescription: String, controller: UIViewController) {
     //Lancer la page avec le produit
     let sb = UIStoryboard(name: "PopUp", bundle: nil)
     let popUp = sb.instantiateViewController(withIdentifier: "FailPopup") as! FailPopUp
     popUp.errorDescription = errorDescription
+    popUp.callerController = controller
     controller.present(popUp, animated: true)
 }

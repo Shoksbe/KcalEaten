@@ -50,6 +50,8 @@ extension CameraController {
             _previewLayer.frame = view.layer.bounds
             _previewLayer.videoGravity = .resizeAspectFill
             view.layer.addSublayer(_previewLayer)
+            
+            _captureSession.startRunning()
         } else {
             failed()
         }
@@ -98,7 +100,6 @@ extension CameraController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureSession()
-        _captureSession.startRunning()
         NotificationCenter.default.addObserver(self, selector: #selector(launchCaptureSession), name: .popupWillDisappear, object: nil)
     }
 
