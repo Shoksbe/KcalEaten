@@ -98,32 +98,21 @@ extension BarCodeController {
             let product = productRequest {
             self.activityController.stopAnimating()
             self.searchButton.setTitle("Rechercher", for: .normal)
-            showProductPage(product: product)
+            SHOW_PRODUCT_PAGE(product: product, controller: self)
         } else {
             _service.getProduct(from: barCode.text!) { (success, product, error) in
-                DispatchQueue.main.async {
-                    self.activityController.stopAnimating()
-                    self.searchButton.setTitle("Rechercher", for: .normal)
+                self.activityController.stopAnimating()
+                self.searchButton.setTitle("Rechercher", for: .normal)
 
-                    guard error == nil,
-                        let product = product else {
-                            self.errorLabel.text = error?.localizedDescription
-                            return
-                    }
-                    self.showProductPage(product: product)
+                guard error == nil,
+                    let product = product else {
+                        self.errorLabel.text = error?.localizedDescription
+                        return
                 }
+                SHOW_PRODUCT_PAGE(product: product, controller: self)
+
             }
         }
     }
-
-    /// Show propuct in a popup view
-    ///
-    /// - Parameter product: Wich product need to be showing
-    private func showProductPage(product: ProductObject) {
-        //Lancer la page avec le produit
-        let sb = UIStoryboard(name: "PopUp", bundle: nil)
-        let popUp = sb.instantiateViewController(withIdentifier: "AddConsommationPopUp") as! AddConsommationPopUp
-        popUp.productObject = product
-        self.present(popUp, animated: true)
-    }
+    
 }
