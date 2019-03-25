@@ -77,7 +77,7 @@ extension CameraController {
                 self.activityController.stopAnimating()
                 guard error == nil,
                     let product = product else {
-                        #warning("créer une alerte si aucun produit n'est trouvé")
+                        SHOW_FAIL_POPUP(errorDescription: error!.localizedDescription, controller: self)
                         #warning("créer un moyen de savoir quand la popup disparait afin de relancer la capture session")
                         return
                 }

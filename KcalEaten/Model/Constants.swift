@@ -23,3 +23,11 @@ func SHOW_PRODUCT_PAGE(product: ProductObject, controller: UIViewController) {
     popUp.productObject = product
     controller.present(popUp, animated: true)
 }
+
+func SHOW_FAIL_POPUP(errorDescription: String, controller: UIViewController) {
+    //Lancer la page avec le produit
+    let sb = UIStoryboard(name: "PopUp", bundle: nil)
+    let popUp = sb.instantiateViewController(withIdentifier: "FailPopup") as! FailPopUp
+    popUp.errorDescription = errorDescription
+    controller.present(popUp, animated: true)
+}
