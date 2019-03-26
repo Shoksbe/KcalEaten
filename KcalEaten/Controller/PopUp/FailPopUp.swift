@@ -11,7 +11,6 @@ import UIKit
 class FailPopUp: UIViewController {
 
     @IBOutlet weak var errorDescriptionLabel: UILabel!
-    var callerController: UIViewController!
     var errorDescription: String?
 }
 //-----------------
@@ -33,9 +32,7 @@ extension FailPopUp {
 //---------------
 extension FailPopUp {
     @IBAction func cancelButtonDidTap() {
-        if callerController is CameraController {
-            NotificationCenter.default.post(name: .popupWillDisappear, object: nil)
-        }
+        NotificationCenter.default.post(name: .popupWillDisappear, object: nil)
         self.dismiss(animated: true, completion: nil)
     }
 }

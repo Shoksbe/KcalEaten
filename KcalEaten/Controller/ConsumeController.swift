@@ -80,11 +80,19 @@ extension ConsumeController {
 extension ConsumeController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
+
+        //To show a default message
+        if _consumeGroupedByDate.count == 0 {
+            return 1
+        }
         return _consumeGroupedByDate.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        if _consumeGroupedByDate.count > 0 {
+            return 1
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -118,6 +126,35 @@ extension ConsumeController: UITableViewDataSource, UITableViewDelegate {
             }
             populateTableView()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        //Setup container
+        let container = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
+
+        //Setup imageView
+        let imageViewWidthAndHeigth: CGFloat = container.frame.width * 0.5
+        let imageView = UIImageView(frame: CGRect(x: imageViewWidthAndHeigth / 2, y: (container.frame.height / 2) - imageViewWidthAndHeigth, width: imageViewWidthAndHeigth, height: imageViewWidthAndHeigth))
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = #imageLiteral(resourceName: "BarCodeLogo")
+
+        //Setup Label
+        let topMarginToImageView: CGFloat = 10
+        let label = UILabel(frame: CGRect(x: imageView.frame.minX, y: imageView.frame.maxY + topMarginToImageView, width: imageView.frame.width, height: 0))
+        label.text = "Auncune consommation enregistrées pour le moment."
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        label.sizeToFit()
+
+        //Add subview
+        container.addSubview(imageView)
+        container.addSubview(label)
+        
+        return container
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return _consumeGroupedByDate.count == 0 ? view.bounds.height : 0
     }
 }
 //------------------------

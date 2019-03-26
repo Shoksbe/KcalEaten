@@ -21,7 +21,6 @@ func SHOW_PRODUCT_PAGE(product: ProductObject, controller: UIViewController) {
     let sb = UIStoryboard(name: "PopUp", bundle: nil)
     let popUp = sb.instantiateViewController(withIdentifier: "AddConsommationPopUp") as! AddConsommationPopUp
     popUp.productObject = product
-    popUp.callerController = controller
     controller.present(popUp, animated: true)
 }
 
@@ -36,6 +35,5 @@ func SHOW_FAIL_POPUP(errorDescription: String, controller: UIViewController) {
     let sb = UIStoryboard(name: "PopUp", bundle: nil)
     let popUp = sb.instantiateViewController(withIdentifier: "FailPopup") as! FailPopUp
     popUp.errorDescription = errorDescription
-    popUp.callerController = controller
     controller.present(popUp, animated: true)
 }

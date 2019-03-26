@@ -170,7 +170,7 @@
         <!--Fail Pop Up-->
         <scene sceneID="sRp-9e-smN">
             <objects>
-                <viewController storyboardIdentifier="FailPopup" modalTransitionStyle="crossDissolve" modalPresentationStyle="currentContext" id="uxP-wO-QsQ" customClass="FailPopUp" customModule="KcalEaten" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FailPopup" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="uxP-wO-QsQ" customClass="FailPopUp" customModule="KcalEaten" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="L5r-xp-UU1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
