@@ -13,8 +13,8 @@ import UIKit
 //------------------------
 class FavoriteController: UIViewController {
     private let _coreDataService = CoreDataHelper()
-    private var _favoritesProducts: [ProductObject]!
     private var _containerVew: ShowProductCollectionController?
+    @IBOutlet weak var containerView: UIView!
 }
 
 //------------------------
@@ -28,6 +28,7 @@ extension FavoriteController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateFavorite()
+        
     }
 }
 //------------------------
@@ -38,15 +39,19 @@ extension FavoriteController {
         guard segue.identifier == "showListOfFavorite" else { return }
         guard let destination = segue.destination as? ShowProductCollectionController else { return }
         _containerVew = destination
-        destination.product = try? _coreDataService.fetchFavorite()
+        guard let product = try? _coreDataService.fetchFavorite() else { return }
+        destination.product = product
     }
     
     
     /// Get new favorite from database and reload tableview
     @objc func updateFavorite() {
-        guard let products = try? _coreDataService.fetchFavorite() else {
+        guard let products = try? _coreDataService.fetchFavorite(),
+                  !products.isEmpty else {
+            containerView.isHidden = true
             return
         }
+        containerView.isHidden = false
         _containerVew?.reload(products: products)
     }
 }

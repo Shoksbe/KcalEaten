@@ -83,8 +83,11 @@ extension ConsumeController: UITableViewDataSource, UITableViewDelegate {
 
         //To show a default message
         if _consumeGroupedByDate.count == 0 {
+            tableView.isScrollEnabled = false
             return 1
         }
+
+        tableView.isScrollEnabled = true
         return _consumeGroupedByDate.count
     }
     
@@ -136,7 +139,7 @@ extension ConsumeController: UITableViewDataSource, UITableViewDelegate {
         let imageViewWidthAndHeigth: CGFloat = container.frame.width * 0.5
         let imageView = UIImageView(frame: CGRect(x: imageViewWidthAndHeigth / 2, y: (container.frame.height / 2) - imageViewWidthAndHeigth, width: imageViewWidthAndHeigth, height: imageViewWidthAndHeigth))
         imageView.contentMode = .scaleAspectFit
-        imageView.image = #imageLiteral(resourceName: "BarCodeLogo")
+        imageView.image = #imageLiteral(resourceName: "NoConsume")
 
         //Setup Label
         let topMarginToImageView: CGFloat = 10

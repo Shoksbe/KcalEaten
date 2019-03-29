@@ -15,6 +15,8 @@ import UIKit
 class CameraController: UIViewController {
 
     @IBOutlet weak var activityController: UIActivityIndicatorView!
+    @IBOutlet weak var noCameraImage: UIImageView!
+    @IBOutlet weak var noCameraLabel: UILabel!
 
     private var _captureSession: AVCaptureSession?
     private var _previewLayer: AVCaptureVideoPreviewLayer!
@@ -60,6 +62,8 @@ extension CameraController {
     private func failed() {
         DispatchQueue.main.async {
             SHOW_FAIL_POPUP(errorDescription: "Votre appareil ne supporte pas la lecture d'un code barre, veuillez utilisez un appareil avec une caméra.", controller: self)
+            self.noCameraImage.isHidden = false
+            self.noCameraLabel.isHidden = false
         }
         _captureSession = nil
     }
@@ -99,6 +103,8 @@ extension CameraController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        noCameraImage.isHidden = true
+        noCameraLabel.isHidden = true
         configureSession()
         NotificationCenter.default.addObserver(self, selector: #selector(launchCaptureSession), name: .popupWillDisappear, object: nil)
     }

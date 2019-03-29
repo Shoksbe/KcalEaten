@@ -19,6 +19,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xn1-ND-55b">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NoFavorite" translatesAutoresizingMaskIntoConstraints="NO" id="s5P-PO-ejJ">
+                                        <rect key="frame" x="94" y="155.5" width="187.5" height="187.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="s5P-PO-ejJ" secondAttribute="height" multiplier="1:1" id="isy-nA-7f6"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vous n'avez encore aucun favoris, scannez un produit afin de pouvoir ajouter un favoris." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LUB-9k-SYh">
+                                        <rect key="frame" x="65.5" y="363" width="244" height="61"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="s5P-PO-ejJ" firstAttribute="centerX" secondItem="Xn1-ND-55b" secondAttribute="centerX" id="4t8-qe-WLC"/>
+                                    <constraint firstItem="s5P-PO-ejJ" firstAttribute="width" secondItem="Xn1-ND-55b" secondAttribute="width" multiplier="0.5" id="8Gr-Yc-i9D"/>
+                                    <constraint firstItem="LUB-9k-SYh" firstAttribute="width" secondItem="s5P-PO-ejJ" secondAttribute="width" multiplier="1.3" id="Kgu-Qz-9D8"/>
+                                    <constraint firstItem="LUB-9k-SYh" firstAttribute="centerX" secondItem="Xn1-ND-55b" secondAttribute="centerX" id="Ydt-dg-S28"/>
+                                    <constraint firstItem="s5P-PO-ejJ" firstAttribute="centerY" secondItem="Xn1-ND-55b" secondAttribute="centerY" constant="-50" id="kDc-qo-VBs"/>
+                                    <constraint firstItem="LUB-9k-SYh" firstAttribute="top" secondItem="s5P-PO-ejJ" secondAttribute="bottom" constant="20" id="qPd-20-06J"/>
+                                </constraints>
+                            </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gf9-Y7-rst">
                                 <rect key="frame" x="0.0" y="20" width="375" height="598"/>
                                 <connections>
@@ -28,18 +55,25 @@
                         </subviews>
                         <color key="backgroundColor" name="CYellow"/>
                         <constraints>
+                            <constraint firstItem="Xn1-ND-55b" firstAttribute="leading" secondItem="foW-RI-NVx" secondAttribute="leading" id="9HO-o7-u5e"/>
                             <constraint firstItem="gf9-Y7-rst" firstAttribute="top" secondItem="foW-RI-NVx" secondAttribute="top" id="NIE-ia-KhO"/>
+                            <constraint firstItem="Xn1-ND-55b" firstAttribute="top" secondItem="foW-RI-NVx" secondAttribute="top" id="Xda-f4-Ij1"/>
+                            <constraint firstItem="foW-RI-NVx" firstAttribute="bottom" secondItem="Xn1-ND-55b" secondAttribute="bottom" id="kbQ-G6-oTl"/>
                             <constraint firstItem="gf9-Y7-rst" firstAttribute="leading" secondItem="foW-RI-NVx" secondAttribute="leading" id="t9K-5l-QUr"/>
                             <constraint firstItem="foW-RI-NVx" firstAttribute="bottom" secondItem="gf9-Y7-rst" secondAttribute="bottom" id="tbh-Le-Shf"/>
+                            <constraint firstItem="foW-RI-NVx" firstAttribute="trailing" secondItem="Xn1-ND-55b" secondAttribute="trailing" id="wT3-nn-cZc"/>
                             <constraint firstItem="foW-RI-NVx" firstAttribute="trailing" secondItem="gf9-Y7-rst" secondAttribute="trailing" id="xXY-uU-6LK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="foW-RI-NVx"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="Cxj-5L-2Df"/>
+                    <connections>
+                        <outlet property="containerView" destination="gf9-Y7-rst" id="03Q-4O-1Cg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ecu-K8-Mhg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2556" y="2813"/>
+            <point key="canvasLocation" x="-2556" y="2812.4437781109445"/>
         </scene>
         <!--ShowProductCollectionController-->
         <scene sceneID="5ja-2u-cM7">
@@ -325,16 +359,36 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </activityIndicatorView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NoCamera" translatesAutoresizingMaskIntoConstraints="NO" id="FK4-H8-2do">
+                                <rect key="frame" x="94" y="190" width="187.5" height="187.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="FK4-H8-2do" secondAttribute="height" multiplier="1:1" id="Dx9-SU-3Ya"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aucune caméra disponible.  Vous pouvez introduire un code barre manuellement en glissant sur la droite." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SmB-AO-oyx">
+                                <rect key="frame" x="56.5" y="387.5" width="262.5" height="81.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" name="CRed"/>
+                        <color key="backgroundColor" name="CYellow"/>
                         <constraints>
+                            <constraint firstItem="FK4-H8-2do" firstAttribute="width" secondItem="oUh-l6-U5M" secondAttribute="width" multiplier="0.5" id="4RF-Qg-9fo"/>
                             <constraint firstItem="5HD-xB-1ns" firstAttribute="centerY" secondItem="oUh-l6-U5M" secondAttribute="centerY" id="5ay-ro-IMf"/>
+                            <constraint firstItem="SmB-AO-oyx" firstAttribute="centerX" secondItem="oUh-l6-U5M" secondAttribute="centerX" id="8Yt-w0-hiZ"/>
+                            <constraint firstItem="SmB-AO-oyx" firstAttribute="top" secondItem="FK4-H8-2do" secondAttribute="bottom" constant="10" id="Ebi-8b-wUM"/>
+                            <constraint firstItem="SmB-AO-oyx" firstAttribute="width" secondItem="oUh-l6-U5M" secondAttribute="width" multiplier="0.7" id="T0J-lT-0KF"/>
+                            <constraint firstItem="FK4-H8-2do" firstAttribute="centerX" secondItem="oUh-l6-U5M" secondAttribute="centerX" id="fQc-kH-dod"/>
+                            <constraint firstItem="FK4-H8-2do" firstAttribute="centerY" secondItem="oUh-l6-U5M" secondAttribute="centerY" constant="-50" id="qYH-PT-jOw"/>
                             <constraint firstItem="5HD-xB-1ns" firstAttribute="centerX" secondItem="oUh-l6-U5M" secondAttribute="centerX" id="z0T-Rn-WF5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gRb-mS-3bc"/>
                     </view>
                     <connections>
                         <outlet property="activityController" destination="5HD-xB-1ns" id="2AV-1I-KFU"/>
+                        <outlet property="noCameraImage" destination="FK4-H8-2do" id="FQ1-Hq-aKr"/>
+                        <outlet property="noCameraLabel" destination="SmB-AO-oyx" id="f5r-oZ-FSG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U01-7f-muK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -497,6 +551,8 @@
     <resources>
         <image name="BarCodeLogo" width="487" height="487"/>
         <image name="Equal" width="24" height="24"/>
+        <image name="NoCamera" width="50" height="50"/>
+        <image name="NoFavorite" width="289" height="289"/>
         <image name="barCodeIcon" width="75" height="75"/>
         <namedColor name="COrange">
             <color red="0.85000002384185791" green="0.35499998927116394" blue="0.26199999451637268" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
