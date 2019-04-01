@@ -24,6 +24,10 @@ class AddConsommationPopUp: MoveableController {
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var centerViewConstraint: NSLayoutConstraint!
     @IBOutlet weak var Popup: CustomPopUp!
+    @IBOutlet weak var addButton: CustomButton!
+    @IBOutlet weak var quantityTFWidth: NSLayoutConstraint!
+    @IBOutlet weak var quantityTFTrailingToAddButton: NSLayoutConstraint!
+    @IBOutlet weak var kcalBy100Gr: UILabel!
     
     override func showKey(notification: Notification) {
         super.showKey(notification: notification)
@@ -51,12 +55,16 @@ extension AddConsommationPopUp {
     }
     
     @IBAction func addDidTap(_ sender: Any) {
-        do {
-            let quantity = try checkQuantityTextField()
-            try _service.addConsume(quantity: quantity, product: _product)
-            dismiss(animated: true, completion: nil)
-        } catch {
-            errorLabel.text = error.localizedDescription
+        if quantityTextField.isHidden {
+            showQuantityTexfield()
+        } else {
+            do {
+                let quantity = try checkQuantityTextField()
+                try _service.addConsume(quantity: quantity, product: _product)
+                dismiss(animated: true, completion: nil)
+            } catch {
+                errorLabel.text = error.localizedDescription
+            }
         }
     }
 }
@@ -67,7 +75,7 @@ extension AddConsommationPopUp {
 extension AddConsommationPopUp {
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         addTap()
         
         if productObject != nil {
@@ -100,6 +108,22 @@ extension AddConsommationPopUp {
             articleTitle.text = productName
         } else {
             articleTitle.text = ProductError.noName.localizedDescription
+        }
+
+        //Check kcal
+
+        let kcal = Int(_product.kCalByGrams * 100)
+        kcalBy100Gr.text = "\(kcal)kcal / 100gr"
+    }
+
+    private func showQuantityTexfield() {
+        quantityTextField.isHidden = false
+        quantityTFWidth.constant = Popup.bounds.width * 0.6
+        quantityTFTrailingToAddButton.constant = 8
+        addButton.setTitle("Valider", for: .normal)
+
+        UIView.animate(withDuration: 0.2) {
+            self.view.layoutIfNeeded()
         }
     }
     
@@ -136,11 +160,4 @@ extension AddConsommationPopUp {
         
         return quantityInt
     }
-}
-
-//--------------------------
-//MARK: - MoveableController
-//--------------------------
-extension AddConsommationPopUp {
-
 }
