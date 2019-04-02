@@ -58,7 +58,8 @@ extension BarCodeController {
     @IBAction func searchBarCode(_ sender: Any) {
         do {
             try checkBarCode()
-            errorLabel.text = ""
+            barCode.resignFirstResponder()
+            errorLabel.text?.removeAll()
             getProduct()
         } catch {
             errorLabel.text = error.localizedDescription
@@ -94,11 +95,15 @@ extension BarCodeController {
         activityController.startAnimating()
         searchButton.setTitle("", for: .normal)
 
+        //First try to get product from database
+
         if let productRequest = try? _coreDataService.fetchProduct(from: barCode.text!),
             let product = productRequest {
             self.activityController.stopAnimating()
             self.searchButton.setTitle("Rechercher", for: .normal)
             SHOW_PRODUCT_PAGE(product: product, controller: self)
+
+        //If its note in database, get product from Open food fact api
         } else {
             _service.getProduct(from: barCode.text!) { (success, product, error) in
                 self.activityController.stopAnimating()

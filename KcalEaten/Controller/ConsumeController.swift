@@ -139,7 +139,7 @@ extension ConsumeController: UITableViewDataSource, UITableViewDelegate {
         let container = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
 
         //Setup imageView
-        let titleHeigth: CGFloat = 70
+        let titleHeigth: CGFloat = titleView.frame.height
         let imageViewWidthAndHeigth: CGFloat = container.frame.width * 0.5
         let imageView = UIImageView(frame: CGRect(x: imageViewWidthAndHeigth / 2, y: (container.frame.height / 2) - (imageViewWidthAndHeigth + titleHeigth), width: imageViewWidthAndHeigth, height: imageViewWidthAndHeigth))
         imageView.contentMode = .scaleAspectFit
@@ -147,7 +147,7 @@ extension ConsumeController: UITableViewDataSource, UITableViewDelegate {
 
         //Setup Label
         let topMarginToImageView: CGFloat = 10
-        let label = UILabel(frame: CGRect(x: imageView.frame.minX, y: imageView.frame.maxY + topMarginToImageView, width: imageView.frame.width, height: 0))
+        let label = UILabel(frame: CGRect(x: imageView.frame.minX, y: imageView.frame.maxY + topMarginToImageView, width: imageViewWidthAndHeigth, height: 0))
         label.text = "Auncune consommation enregistrées pour le moment."
         label.textAlignment = .center
         label.numberOfLines = 0

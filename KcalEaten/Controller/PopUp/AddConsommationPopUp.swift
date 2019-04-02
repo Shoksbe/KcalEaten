@@ -57,6 +57,7 @@ extension AddConsommationPopUp {
     @IBAction func addDidTap(_ sender: Any) {
         if quantityTextField.isHidden {
             showQuantityTexfield()
+            quantityTextField.becomeFirstResponder()
         } else {
             do {
                 let quantity = try checkQuantityTextField()
