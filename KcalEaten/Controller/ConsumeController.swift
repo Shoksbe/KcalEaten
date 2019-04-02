@@ -18,6 +18,7 @@ class ConsumeController: UIViewController {
     private var _consumesFromCoreData: [Consume]!
     private let _coreDataService = CoreDataHelper()
     private var _dateOfConsumeClicked: String!
+    @IBOutlet weak var titleView: UIView!
 }
 
 //---------------
@@ -64,6 +65,7 @@ extension ConsumeController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        titleView.isHidden = false
         populateTableView()
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
@@ -84,6 +86,7 @@ extension ConsumeController: UITableViewDataSource, UITableViewDelegate {
         //To show a default message
         if _consumeGroupedByDate.count == 0 {
             tableView.isScrollEnabled = false
+            titleView.isHidden = true
             return 1
         }
 
@@ -136,8 +139,9 @@ extension ConsumeController: UITableViewDataSource, UITableViewDelegate {
         let container = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
 
         //Setup imageView
+        let titleHeigth: CGFloat = 70
         let imageViewWidthAndHeigth: CGFloat = container.frame.width * 0.5
-        let imageView = UIImageView(frame: CGRect(x: imageViewWidthAndHeigth / 2, y: (container.frame.height / 2) - imageViewWidthAndHeigth, width: imageViewWidthAndHeigth, height: imageViewWidthAndHeigth))
+        let imageView = UIImageView(frame: CGRect(x: imageViewWidthAndHeigth / 2, y: (container.frame.height / 2) - (imageViewWidthAndHeigth + titleHeigth), width: imageViewWidthAndHeigth, height: imageViewWidthAndHeigth))
         imageView.contentMode = .scaleAspectFit
         imageView.image = #imageLiteral(resourceName: "NoConsume")
 

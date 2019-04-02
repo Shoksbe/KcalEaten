@@ -15,6 +15,7 @@ class FavoriteController: UIViewController {
     private let _coreDataService = CoreDataHelper()
     private var _containerVew: ShowProductCollectionController?
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var titleView: UIView!
 }
 
 //------------------------
@@ -49,8 +50,10 @@ extension FavoriteController {
         guard let products = try? _coreDataService.fetchFavorite(),
                   !products.isEmpty else {
             containerView.isHidden = true
+            titleView.isHidden = true
             return
         }
+        titleView.isHidden = false
         containerView.isHidden = false
         _containerVew?.reload(products: products)
     }
