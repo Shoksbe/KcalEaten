@@ -79,7 +79,25 @@ class OpenFoodFactService {
         productObject.imageData = imageData
         productObject.kCalByGrams = kcalByGrams
         productObject.name = product.name
+        if let novagroup = product.nutriments.novaGroup {
+            productObject.novaGroup = Int32(novagroup) ?? 0
+        }
 
+        switch product.nutriments.nutriScore {
+        case "1":
+            productObject.nutriScore = "A"
+        case "2":
+            productObject.nutriScore = "B"
+        case "3":
+            productObject.nutriScore = "C"
+        case "4":
+            productObject.nutriScore = "D"
+        case "5":
+            productObject.nutriScore = "E"
+        default:
+            productObject.nutriScore = nil
+        }
+        
         return productObject
     }
 }

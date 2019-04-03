@@ -323,7 +323,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PE6-ac-Po9">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="30" width="375" height="637"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -399,7 +399,7 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="T5H-7K-m4G" userLabel="Nutriscore">
                                                             <rect key="frame" x="139.5" y="113" width="94" height="30"/>
                                                             <subviews>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NutriScoreA" translatesAutoresizingMaskIntoConstraints="NO" id="PiM-K8-nQw">
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NutriScoreC" translatesAutoresizingMaskIntoConstraints="NO" id="PiM-K8-nQw">
                                                                     <rect key="frame" x="0.0" y="0.0" width="60" height="30"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="PiM-K8-nQw" secondAttribute="height" multiplier="2:1" id="NYF-iz-PVk"/>
@@ -480,7 +480,7 @@
                             <constraint firstItem="PE6-ac-Po9" firstAttribute="bottom" secondItem="SzW-gb-bhQ" secondAttribute="bottom" id="9Rv-BY-0aH"/>
                             <constraint firstItem="PE6-ac-Po9" firstAttribute="leading" secondItem="SzW-gb-bhQ" secondAttribute="leading" id="KTD-zy-7zP"/>
                             <constraint firstItem="PE6-ac-Po9" firstAttribute="trailing" secondItem="SzW-gb-bhQ" secondAttribute="trailing" id="PBt-eV-j14"/>
-                            <constraint firstItem="PE6-ac-Po9" firstAttribute="top" secondItem="SzW-gb-bhQ" secondAttribute="top" id="w1k-g2-nbc"/>
+                            <constraint firstItem="PE6-ac-Po9" firstAttribute="top" secondItem="SzW-gb-bhQ" secondAttribute="top" constant="10" id="w1k-g2-nbc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SzW-gb-bhQ"/>
                     </view>
@@ -710,7 +710,7 @@
         <image name="NOVA1" width="200" height="336"/>
         <image name="NoCamera" width="50" height="50"/>
         <image name="NoFavorite" width="289" height="289"/>
-        <image name="NutriScoreA" width="240" height="130"/>
+        <image name="NutriScoreC" width="240" height="130"/>
         <image name="barCodeIcon" width="75" height="75"/>
         <namedColor name="COrange">
             <color red="0.85000002384185791" green="0.35499998927116394" blue="0.26199999451637268" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

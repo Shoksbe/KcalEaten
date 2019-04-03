@@ -11,10 +11,12 @@
         <attribute name="isFavorite" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="kCalByGrams" attributeType="Double" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="novaGroup" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="nutriScore" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="consumes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Consume" inverseName="product" inverseEntity="Consume" syncable="YES"/>
     </entity>
     <elements>
         <element name="Consume" positionX="-326" positionY="-44" width="128" height="90"/>
-        <element name="ProductObject" positionX="-92" positionY="-34" width="128" height="135"/>
+        <element name="ProductObject" positionX="-92" positionY="-34" width="128" height="165"/>
     </elements>
 </model>

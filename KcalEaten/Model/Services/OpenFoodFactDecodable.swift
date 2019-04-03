@@ -34,10 +34,14 @@ struct Product: Decodable {
 
 struct Nutriments: Decodable {
     let energy, energyUnit, energy100G: String
+    let novaGroup: String?
+    let nutriScore: String?
 
     enum CodingKeys: String, CodingKey {
         case energy
         case energyUnit = "energy_unit"
         case energy100G = "energy_100g"
+        case nutriScore = "nutrition-score-fr"
+        case novaGroup = "nova-group"
     }
 }

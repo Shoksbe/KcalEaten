@@ -23,7 +23,24 @@ class ProductCell: UITableViewCell {
             if let product = product {
                 self.productImage.image = product.image
                 self.productName.text = product.name
-                self.kcalConsume.text = String(product.kCalByGrams * 100) + " / 100gr" 
+
+                let KcalConsumeBy100GrWithoutComma = Int(product.kCalByGrams * 100)
+                self.kcalConsume.text = String(KcalConsumeBy100GrWithoutComma) + "kcal" + " / 100gr"
+
+                if let nutriScore = product.nutriScore {
+                    self.nutriScoreImage.image = UIImage(named: "NutriScore\(nutriScore)")
+                } else {
+                    self.nutriScoreImage.isHidden = true
+                }
+
+                if product.novaGroup == 1 ||
+                   product.novaGroup == 2 ||
+                   product.novaGroup == 3 ||
+                   product.novaGroup == 4  {
+                    self.novaImage.image = UIImage(named: "Nova\(product.novaGroup)")
+                } else {
+                    self.novaImage.isHidden = true
+                }
             }
         }
     }
