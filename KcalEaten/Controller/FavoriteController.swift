@@ -13,7 +13,7 @@ import UIKit
 //------------------------
 class FavoriteController: UIViewController {
     private let _coreDataService = CoreDataHelper()
-    private var _containerVew: ShowProductCollectionController?
+    private var _containerVew: ListOfProductController?
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var titleView: UIView!
 }
@@ -38,7 +38,7 @@ extension FavoriteController {
 extension FavoriteController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "showListOfFavorite" else { return }
-        guard let destination = segue.destination as? ShowProductCollectionController else { return }
+        guard let destination = segue.destination as? ListOfProductController else { return }
         _containerVew = destination
         guard let product = try? _coreDataService.fetchFavorite() else { return }
         destination.product = product

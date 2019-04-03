@@ -170,7 +170,7 @@ extension ConsumeController: UITableViewDataSource, UITableViewDelegate {
 extension ConsumeController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "showConsumeDetails" else { return }
-        guard let destination = segue.destination as? ShowProductCollectionController else { return }
+        guard let destination = segue.destination as? ListOfProductController else { return }
         destination.product = sender as? [ProductObject]
     }
 }

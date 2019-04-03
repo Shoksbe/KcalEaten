@@ -8,23 +8,22 @@
 
 import UIKit
 
-class ProductCell: UICollectionViewCell {
+class ProductCell: UITableViewCell {
 
-    @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var productLabel: UILabel!
+    @IBOutlet weak var productImage: UIImageView!
+    @IBOutlet weak var nutriScoreImage: UIImageView!
+    @IBOutlet weak var novaImage: UIImageView!
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        containerView.layer.cornerRadius = 6
-        containerView.layer.masksToBounds = true
-    }
+    @IBOutlet weak var productName: UILabel!
+    @IBOutlet weak var productMarque: UILabel!
+    @IBOutlet weak var kcalConsume: UILabel!
 
     var product: ProductObject? {
         didSet {
             if let product = product {
-                self.imageView.image = product.image
-                self.productLabel.text = product.name
+                self.productImage.image = product.image
+                self.productName.text = product.name
+                self.kcalConsume.text = String(product.kCalByGrams * 100) + " / 100gr" 
             }
         }
     }
