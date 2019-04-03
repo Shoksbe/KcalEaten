@@ -14,6 +14,7 @@ import UIKit
 class ListOfProductController: UIViewController {
     @IBOutlet weak var tableview: UITableView!
     var product: [ProductObject]?
+    var productWithQuantity: [(product:ProductObject, quantity:Int)]?
 }
 
 //------------------
@@ -30,8 +31,12 @@ extension ListOfProductController {
 
 extension ListOfProductController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let count = product?.count else { return 0 }
-        return count
+        if let count = product?.count {
+            return count
+        } else if let count = productWithQuantity?.count {
+            return count
+        }
+        return 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -39,11 +44,12 @@ extension ListOfProductController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "productCell", for: indexPath) as! ProductCell
 
         //Get product a index
-        guard let product = product?[indexPath.row] else {
-            return UITableViewCell()
+        if let product = productWithQuantity?[indexPath.row] {
+            cell.setupProductWithConsommation(product: product.product, quantityConsumed: product.quantity)
+        } else if let product = product?[indexPath.row] {
+            cell.setupProductWithConsommation(product: product)
         }
 
-        cell.product = product
 
         return cell
     }

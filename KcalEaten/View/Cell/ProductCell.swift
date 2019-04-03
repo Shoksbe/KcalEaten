@@ -18,14 +18,11 @@ class ProductCell: UITableViewCell {
     @IBOutlet weak var productMarque: UILabel!
     @IBOutlet weak var kcalConsume: UILabel!
 
-    var product: ProductObject? {
+    private var product: ProductObject? {
         didSet {
             if let product = product {
                 self.productImage.image = product.image
                 self.productName.text = product.name
-
-                let KcalConsumeBy100GrWithoutComma = Int(product.kCalByGrams * 100)
-                self.kcalConsume.text = String(KcalConsumeBy100GrWithoutComma) + "kcal" + " / 100gr"
 
                 if let nutriScore = product.nutriScore {
                     self.nutriScoreImage.image = UIImage(named: "NutriScore\(nutriScore)")
@@ -45,4 +42,11 @@ class ProductCell: UITableViewCell {
         }
     }
 
+    func setupProductWithConsommation(product: ProductObject, quantityConsumed: Int = 100) {
+        self.product = product
+
+        let KcalConsume = product.kCalByGrams * Double(quantityConsumed)
+        let kcalConsumeWithoutComma = Int(KcalConsume)
+        self.kcalConsume.text = String(kcalConsumeWithoutComma) + "kcal" + " / \(quantityConsumed)gr"
+    }
 }

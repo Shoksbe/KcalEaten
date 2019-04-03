@@ -115,13 +115,14 @@ extension ConsumeController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         _dateOfConsumeClicked = _consumeGroupedByDate[indexPath.section].first?.date?.toString()
         
-        var products = [ProductObject]()
+        var products = [(product:ProductObject, quantity:Int)]()
         
         _consumeGroupedByDate[indexPath.section].forEach { (consume) in
             if let product = consume.product {
-                products.append(product)
+                products.append((product, Int(consume.quantity)))
             }
         }
+
         performSegue(withIdentifier: "showConsumeDetails", sender: products)
     }
     
@@ -171,6 +172,6 @@ extension ConsumeController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "showConsumeDetails" else { return }
         guard let destination = segue.destination as? ListOfProductController else { return }
-        destination.product = sender as? [ProductObject]
+        destination.productWithQuantity = sender as? [(product:ProductObject, quantity:Int)]
     }
 }
