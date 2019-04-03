@@ -28,6 +28,8 @@ class AddConsommationPopUp: MoveableController {
     @IBOutlet weak var quantityTFWidth: NSLayoutConstraint!
     @IBOutlet weak var quantityTFTrailingToAddButton: NSLayoutConstraint!
     @IBOutlet weak var kcalBy100Gr: UILabel!
+    @IBOutlet weak var nutriScoreImage: UIImageView!
+    @IBOutlet weak var novaGroupImage: UIImageView!
     
     override func showKey(notification: Notification) {
         super.showKey(notification: notification)
@@ -112,9 +114,25 @@ extension AddConsommationPopUp {
         }
 
         //Check kcal
-
         let kcal = Int(_product.kCalByGrams * 100)
         kcalBy100Gr.text = "\(kcal)kcal / 100gr"
+
+        //NutriScore image
+        if let nutriScore = _product.nutriScore {
+            self.nutriScoreImage.image = UIImage(named: "NutriScore\(nutriScore)")
+        } else {
+            self.nutriScoreImage.isHidden = true
+        }
+
+        //Novagroup image
+        if _product.novaGroup == 1 ||
+            _product.novaGroup == 2 ||
+            _product.novaGroup == 3 ||
+            _product.novaGroup == 4  {
+            self.novaGroupImage.image = UIImage(named: "Nova\(_product.novaGroup)")
+        } else {
+            self.novaGroupImage.isHidden = true
+        }
     }
 
     private func showQuantityTexfield() {
