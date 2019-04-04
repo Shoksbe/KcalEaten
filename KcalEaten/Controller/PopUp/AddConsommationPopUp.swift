@@ -129,7 +129,7 @@ extension AddConsommationPopUp {
             _product.novaGroup == 2 ||
             _product.novaGroup == 3 ||
             _product.novaGroup == 4  {
-            self.novaGroupImage.image = UIImage(named: "Nova\(_product.novaGroup)")
+            self.novaGroupImage.image = UIImage(named: "NOVA\(_product.novaGroup)")
         } else {
             self.novaGroupImage.isHidden = true
         }

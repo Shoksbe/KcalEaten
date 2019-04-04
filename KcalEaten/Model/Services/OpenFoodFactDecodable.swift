@@ -23,25 +23,25 @@ struct Product: Decodable {
     let name: String
     let barCode: String
     let nutriments: Nutriments
+    let nutriScore: String?
 
     enum CodingKeys: String, CodingKey {
         case imageURL = "image_url"
         case name = "product_name"
         case barCode = "code"
         case nutriments
+        case nutriScore = "nutrition_grades"
     }
 }
 
 struct Nutriments: Decodable {
     let energy, energyUnit, energy100G: String
     let novaGroup: String?
-    let nutriScore: String?
 
     enum CodingKeys: String, CodingKey {
         case energy
         case energyUnit = "energy_unit"
         case energy100G = "energy_100g"
-        case nutriScore = "nutrition-score-fr"
         case novaGroup = "nova-group"
     }
 }
