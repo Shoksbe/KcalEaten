@@ -18,12 +18,17 @@ class ProductCell: UITableViewCell {
     @IBOutlet weak var productMarque: UILabel!
     @IBOutlet weak var kcalConsume: UILabel!
 
+    override func prepareForReuse() {
+        nutriScoreImage.isHidden = false
+        novaImage.isHidden = false
+    }
+
     private var product: ProductObject? {
         didSet {
             if let product = product {
                 self.productImage.image = product.image
                 self.productName.text = product.name
-
+                
                 if let nutriScore = product.nutriScore {
                     self.nutriScoreImage.image = UIImage(named: "NutriScore\(nutriScore)")
                 } else {
@@ -34,7 +39,7 @@ class ProductCell: UITableViewCell {
                    product.novaGroup == 2 ||
                    product.novaGroup == 3 ||
                    product.novaGroup == 4  {
-                    self.novaImage.image = UIImage(named: "Nova\(product.novaGroup)")
+                    self.novaImage.image = UIImage(named: "NOVA\(product.novaGroup)")
                 } else {
                     self.novaImage.isHidden = true
                 }
