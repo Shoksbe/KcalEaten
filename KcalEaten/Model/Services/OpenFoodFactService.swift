@@ -69,7 +69,7 @@ class OpenFoodFactService {
 
         //Get kcalorie from kj
         var kcalByGrams = 0.0
-        if let energyDouble = Double(product.nutriments.energy100G) {
+        if let energy100G = product.nutriments?.energy100G, let energyDouble = Double(energy100G) {
             kcalByGrams = (energyDouble / 100.0) * 0.23
         }
 
@@ -84,8 +84,10 @@ class OpenFoodFactService {
         //Product's name
         productObject.name = product.name
         //Nova group product's score
-        if let novagroup = product.nutriments.novaGroup {
-            productObject.novaGroup = Int32(novagroup) ?? 0
+        if let novaGroup = product.nutriments?.novaGroup as? String {
+            productObject.novaGroup = Int32(novaGroup) ?? 0
+        } else if let novaGroup = product.nutriments?.novaGroup as? Int {
+            productObject.novaGroup = Int32(novaGroup)
         }
         //Product's Nutri score
         productObject.nutriScore = product.nutriScore?.capitalized

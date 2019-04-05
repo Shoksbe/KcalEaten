@@ -19,10 +19,11 @@ struct OpenFoodFactDecodable: Decodable {
 }
 
 struct Product: Decodable {
+
     let imageURL: String?
     let name: String
     let barCode: String
-    let nutriments: Nutriments
+    let nutriments: Nutriments?
     let nutriScore: String?
 
     enum CodingKeys: String, CodingKey {
@@ -35,8 +36,39 @@ struct Product: Decodable {
 }
 
 struct Nutriments: Decodable {
-    let energy, energyUnit, energy100G: String
-    let novaGroup: String?
+
+    init(from decoder: Decoder) throws {
+        let contenaire = try decoder.container(keyedBy: CodingKeys.self)
+
+        if let energy = try? contenaire.decode(String.self, forKey: .energy) {
+            self.energy = energy
+        } else {
+            self.energy = nil
+        }
+
+        if let energyUnit = try? contenaire.decode(String.self, forKey: .energyUnit) {
+            self.energyUnit = energyUnit
+        } else {
+            self.energyUnit = nil
+        }
+
+        if let energy100G = try? contenaire.decode(String.self, forKey: .energy100G) {
+            self.energy100G = energy100G
+        } else {
+            self.energy100G = nil
+        }
+
+        if let novaGroup = try? contenaire.decode(String.self, forKey: .novaGroup) {
+            self.novaGroup = novaGroup
+        } else if let novaGroup = try? contenaire.decode(Int.self, forKey: .novaGroup) {
+            self.novaGroup = novaGroup
+        } else {
+            novaGroup = nil
+        }
+    }
+
+    let energy, energyUnit, energy100G: String?
+    let novaGroup: Any?
 
     enum CodingKeys: String, CodingKey {
         case energy
