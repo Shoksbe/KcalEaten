@@ -44,16 +44,14 @@ extension CoreDataError: LocalizedError {
 }
 
 enum UserError: Error {
-    case barCodeToShort, barCodeToLong, quantityToShort, quantityConversionImpossible
+    case quantityToShort, quantityConversionImpossible, barCodeInvalide
 }
 
 extension UserError: LocalizedError {
     var errorDescription: String? {
         switch self {
-        case .barCodeToShort:
-            return NSLocalizedString("Le code barre est trop court, il doit contenir 13 chiffres.", comment: "")
-        case .barCodeToLong:
-            return NSLocalizedString("Le code barre est trop long, il doit contenir 13 chiffres", comment: "")
+        case .barCodeInvalide:
+            return NSLocalizedString("Mauvais code barre, il doit faire 8 ou 13 caractères.", comment: "")
         case .quantityToShort:
             return NSLocalizedString("N'oubliez pas d'entrer une quantité.", comment: "")
         case .quantityConversionImpossible:

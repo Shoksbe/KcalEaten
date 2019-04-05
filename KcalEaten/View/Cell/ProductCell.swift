@@ -35,12 +35,10 @@ class ProductCell: UITableViewCell {
                     self.nutriScoreImage.isHidden = true
                 }
 
-                if product.novaGroup == 1 ||
-                   product.novaGroup == 2 ||
-                   product.novaGroup == 3 ||
-                   product.novaGroup == 4  {
+                switch product.novaGroup {
+                case 1...4:
                     self.novaImage.image = UIImage(named: "NOVA\(product.novaGroup)")
-                } else {
+                default:
                     self.novaImage.isHidden = true
                 }
 

@@ -16,7 +16,8 @@ class BarCodeController: MoveableController {
     
     private let _service = OpenFoodFactService()
     private let _coreDataService = CoreDataHelper()
-    private let _barCodeSize = 13
+    private let _barCodeSizeEan13 = 13
+    private let _barCodeSizeEan8 = 8
 
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var barCode: UITextField!
@@ -74,18 +75,9 @@ extension BarCodeController {
     ///Check if the bar code is right
     private func checkBarCode() throws {
         
-        //not empty
-        guard let barCode = barCode.text else {
-            throw UserError.barCodeToShort
-        }
-        
-        //Count of numbers not equal to 13
-        guard barCode.count == _barCodeSize else {
-            if barCode.count < _barCodeSize {
-                throw UserError.barCodeToShort
-            } else {
-                throw UserError.barCodeToLong
-            }
+        //Count of numbers not equal to barcodeSize
+        guard let barcode = barCode.text, barcode.count == _barCodeSizeEan13 || barcode.count == _barCodeSizeEan8 else {
+            throw UserError.barCodeInvalide
         }
     }
 

@@ -45,7 +45,7 @@ extension CameraController {
             let metadataOutput = AVCaptureMetadataOutput()
             _captureSession?.addOutput(metadataOutput)
             metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.global(qos: .userInitiated))
-            metadataOutput.metadataObjectTypes = [.ean13]
+            metadataOutput.metadataObjectTypes = [.ean13, .ean8]
 
             //Setup layer
             _previewLayer = AVCaptureVideoPreviewLayer(session: _captureSession!)
