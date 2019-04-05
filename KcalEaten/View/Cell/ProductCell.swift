@@ -15,7 +15,7 @@ class ProductCell: UITableViewCell {
     @IBOutlet weak var novaImage: UIImageView!
 
     @IBOutlet weak var productName: UILabel!
-    @IBOutlet weak var productMarque: UILabel!
+    @IBOutlet weak var productBrand: UILabel!
     @IBOutlet weak var kcalConsume: UILabel!
 
     override func prepareForReuse() {
@@ -43,6 +43,8 @@ class ProductCell: UITableViewCell {
                 } else {
                     self.novaImage.isHidden = true
                 }
+
+                self.productBrand.text = product.brand
             }
         }
     }

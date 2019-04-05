@@ -432,8 +432,8 @@
                                             <outlet property="kcalConsume" destination="Rb4-aP-cld" id="QEo-Xa-A7H"/>
                                             <outlet property="novaImage" destination="dpk-Bi-x3P" id="Jf6-nm-jle"/>
                                             <outlet property="nutriScoreImage" destination="PiM-K8-nQw" id="YME-zS-Pue"/>
+                                            <outlet property="productBrand" destination="zaz-4C-NAO" id="jVH-3k-6L0"/>
                                             <outlet property="productImage" destination="XkH-KQ-1BC" id="GF5-Ag-xEx"/>
-                                            <outlet property="productMarque" destination="zaz-4C-NAO" id="jVH-3k-6L0"/>
                                             <outlet property="productName" destination="mhZ-Tc-dxT" id="vdt-NA-VQb"/>
                                         </connections>
                                     </tableViewCell>

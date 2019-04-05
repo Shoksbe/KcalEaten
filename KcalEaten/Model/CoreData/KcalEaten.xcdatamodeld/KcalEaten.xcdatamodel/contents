@@ -7,6 +7,7 @@
     </entity>
     <entity name="ProductObject" representedClassName=".ProductObject" syncable="YES" codeGenerationType="category">
         <attribute name="barCode" attributeType="String" syncable="YES"/>
+        <attribute name="brand" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="imageData" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <attribute name="isFavorite" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="kCalByGrams" attributeType="Double" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -17,6 +18,6 @@
     </entity>
     <elements>
         <element name="Consume" positionX="-326" positionY="-44" width="128" height="90"/>
-        <element name="ProductObject" positionX="-92" positionY="-34" width="128" height="165"/>
+        <element name="ProductObject" positionX="-92" positionY="-34" width="128" height="180"/>
     </elements>
 </model>

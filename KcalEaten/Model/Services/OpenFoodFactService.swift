@@ -91,6 +91,8 @@ class OpenFoodFactService {
         }
         //Product's Nutri score
         productObject.nutriScore = product.nutriScore?.capitalized
+        //product's brands
+        productObject.brand = product.brand
 
         return productObject
     }
