@@ -126,7 +126,9 @@ extension ConsumeController: UITableViewDataSource, UITableViewDelegate {
             }
         }
 
-        performSegue(withIdentifier: _showConsumeDetailsSegueId, sender: products)
+        let consumes = _consumeGroupedByDate[indexPath.section]
+
+        performSegue(withIdentifier: _showConsumeDetailsSegueId, sender: consumes)
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -175,6 +177,6 @@ extension ConsumeController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == _showConsumeDetailsSegueId else { return }
         guard let destination = segue.destination as? ListOfProductController else { return }
-        destination.productWithQuantity = sender as? [(product:ProductObject, quantity:Int)] ?? nil
+        destination.consumes = sender as? [Consume] ?? nil
     }
 }

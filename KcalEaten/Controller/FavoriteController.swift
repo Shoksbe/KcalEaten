@@ -89,6 +89,16 @@ extension FavoriteController: UITableViewDataSource, UITableViewDelegate {
         }
     }
 
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            if let product = _products?[indexPath.row] {
+                try? _coreDataService.removeFavorite(from: product)
+                _products = try? _coreDataService.fetchFavorite()
+                tableview.reloadData()
+            }
+        }
+    }
+
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         //Setup container
         let container = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
