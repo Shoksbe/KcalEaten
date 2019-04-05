@@ -8,12 +8,15 @@
 
 import UIKit
 
-//------------------------
-//MARK: - Variables
-//------------------------
+//---------------------------
+//MARK: - Variables & Outlets
+//---------------------------
 class FavoriteController: UIViewController {
+    private let _showListOfFavoriteSegueId = "showListOfFavorite"
     private let _coreDataService = CoreDataHelper()
-    private var _containerVew: ListOfProductController?
+    ///is used to reload the tableview on ListOfProductController
+    private var _containerView: ListOfProductController?
+
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var titleView: UIView!
 }
@@ -24,12 +27,12 @@ class FavoriteController: UIViewController {
 extension FavoriteController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(updateFavorite), name: .favoriteStateOfProductDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateFavoriteTableview), name: .favoriteStateOfProductDidChange, object: nil)
     }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        updateFavorite()
-        
+        updateFavoriteTableview()
     }
 }
 //------------------------
@@ -37,24 +40,23 @@ extension FavoriteController {
 //------------------------
 extension FavoriteController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == "showListOfFavorite" else { return }
+        guard segue.identifier == _showListOfFavoriteSegueId else { return }
         guard let destination = segue.destination as? ListOfProductController else { return }
-        _containerVew = destination
         guard let product = try? _coreDataService.fetchFavorite() else { return }
-        destination.product = product
+        destination.product = product.isEmpty ? nil : product
+
+        _containerView = destination
     }
     
     
     /// Get new favorite from database and reload tableview
-    @objc func updateFavorite() {
-        guard let products = try? _coreDataService.fetchFavorite(),
-                  !products.isEmpty else {
-            containerView.isHidden = true
+    @objc func updateFavoriteTableview() {
+        guard let products = try? _coreDataService.fetchFavorite(), !products.isEmpty else {
+            _containerView?.reloadTableview(with: nil)
             titleView.isHidden = true
             return
         }
         titleView.isHidden = false
-        containerView.isHidden = false
-        _containerVew?.reload(products: products)
+        _containerView?.reloadTableview(with: products)
     }
 }

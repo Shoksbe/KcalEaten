@@ -14,11 +14,14 @@ import UIKit
 class ConsumeController: UIViewController {
     
     @IBOutlet weak var tableview: UITableView!
+    @IBOutlet weak var titleView: UIView!
+
+    private let _consumeCellId = "consumeCell"
+    private let _showConsumeDetailsSegueId = "showConsumeDetails"
     private var _consumeGroupedByDate = [[Consume]]()
     private var _consumesFromCoreData: [Consume]!
     private let _coreDataService = CoreDataHelper()
     private var _dateOfConsumeClicked: String!
-    @IBOutlet weak var titleView: UIView!
 }
 
 //---------------
@@ -104,7 +107,7 @@ extension ConsumeController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         //Creating cell
-        let cell = tableView.dequeueReusableCell(withIdentifier: "consumeCell", for: indexPath) as! ConsumeCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: _consumeCellId, for: indexPath) as! ConsumeCell
 
         //Set cell
         cell.setup(dayConsume: _consumeGroupedByDate[indexPath.section])
@@ -123,7 +126,7 @@ extension ConsumeController: UITableViewDataSource, UITableViewDelegate {
             }
         }
 
-        performSegue(withIdentifier: "showConsumeDetails", sender: products)
+        performSegue(withIdentifier: _showConsumeDetailsSegueId, sender: products)
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -170,8 +173,8 @@ extension ConsumeController: UITableViewDataSource, UITableViewDelegate {
 //------------------------
 extension ConsumeController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == "showConsumeDetails" else { return }
+        guard segue.identifier == _showConsumeDetailsSegueId else { return }
         guard let destination = segue.destination as? ListOfProductController else { return }
-        destination.productWithQuantity = sender as? [(product:ProductObject, quantity:Int)]
+        destination.productWithQuantity = sender as? [(product:ProductObject, quantity:Int)] ?? nil
     }
 }
