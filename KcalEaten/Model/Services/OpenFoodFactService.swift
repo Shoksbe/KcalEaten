@@ -89,7 +89,7 @@ class OpenFoodFactService {
         } else if let novaGroup = product.nutriments?.novaGroup as? Int {
             productObject.novaGroup = Int32(novaGroup)
         }
-        //Product's Nutri score
+        //Product's Nutri score captilazed to make more easy the image's choice
         productObject.nutriScore = product.nutriScore?.capitalized
         //product's brands
         productObject.brand = product.brand

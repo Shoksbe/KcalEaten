@@ -156,7 +156,7 @@ class CoreDataHelper {
     ///   - quantity: consomation's quantity
     ///   - product: wich product is consuming
     /// - Throws: If save to database fail
-    func addConsume(date: Date = Date(), quantity: Int, product: ProductObject) throws {
+    func addConsume(date: Date = Date().today(), quantity: Int, product: ProductObject) throws {
 
         let consume = Consume(context: _context)
         consume.date = date

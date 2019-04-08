@@ -19,6 +19,16 @@ class ListOfProductController: UIViewController {
     var consumes: [Consume]?
 }
 
+//------------------------
+//MARK: - Life Cycle
+//------------------------
+extension ListOfProductController {
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.popViewController(animated: false)
+    }
+}
+
 //-----------------------------------------
 //MARK: - Collection dataSource & Delegate
 //-----------------------------------------

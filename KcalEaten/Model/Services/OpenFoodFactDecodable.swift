@@ -39,6 +39,9 @@ struct Product: Decodable {
 
 struct Nutriments: Decodable {
 
+    /*
+     The initializer is created only to give two different types to the novaGroup variable. Sometimes this variable is String or Int.
+     */
     init(from decoder: Decoder) throws {
         let contenaire = try decoder.container(keyedBy: CodingKeys.self)
 

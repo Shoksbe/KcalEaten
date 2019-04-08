@@ -206,8 +206,7 @@
 				37273658223E455A003483FD /* PopUp */,
 				37DA92A2223D8F8A00F3DFED /* Scanner */,
 				37EF2755223FE90E0045CD53 /* FavoriteController.swift */,
-				378DCB94224134D2008C835C /* ConsumeController.swift */,
-				376613CE2240CFD900DA35E6 /* ListOfProductController.swift */,
+				37D14DCA225B278E008CF180 /* Consume */,
 				372CF1B92247EE7D009E4DD8 /* MoveableController.swift */,
 			);
 			path = Controller;
@@ -262,6 +261,15 @@
 				3727365F223EBF62003483FD /* CustomButton.swift */,
 			);
 			path = "Custom views";
+			sourceTree = "<group>";
+		};
+		37D14DCA225B278E008CF180 /* Consume */ = {
+			isa = PBXGroup;
+			children = (
+				378DCB94224134D2008C835C /* ConsumeController.swift */,
+				376613CE2240CFD900DA35E6 /* ListOfProductController.swift */,
+			);
+			path = Consume;
 			sourceTree = "<group>";
 		};
 		37DA92A2223D8F8A00F3DFED /* Scanner */ = {

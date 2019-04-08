@@ -13,15 +13,11 @@ class ProductObject: NSManagedObject {
 
     var image: UIImage {
 
-        if let data = self.imageData, let img = UIImage(data: data), img.size.height > 50 {
-            return img
-        } 
-
-        if let defaultImage = UIImage(named: "DefaultImage") {
-            return defaultImage
+        guard let data = self.imageData, let img = UIImage(data: data) else {
+            return UIImage()
         }
         
-        return UIImage()
+        return img
 
     }
 }

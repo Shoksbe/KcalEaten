@@ -35,11 +35,7 @@ extension ConsumeController {
         //Groupe consume by date
         let groupedConsume = Dictionary(grouping: _consumesFromCoreData) { (element) -> Date in
             guard let elementDate = element.date else { return Date() }
-            //Formatting the date in medium version and conversion to a string
-            let dateString = elementDate.toString()
-            //Creation of a medium date from the string
-            let date = dateString.toDate()
-            return date
+            return elementDate
         }
 
         //Sorte consume by date; key == date
