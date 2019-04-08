@@ -58,7 +58,7 @@ class CoreDataTest: XCTestCase {
         let backgroundContext = mockContainer.newBackgroundContext()
         
         //Creating products
-        let products = createProduct(quantity: 1000, into: backgroundContext)
+        let products = createProduct(quantity: 10, into: backgroundContext)
         
         //Foreach products add consume
         products.forEach { (product) in

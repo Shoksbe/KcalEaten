@@ -14,6 +14,7 @@ import UIKit
 class ListOfProductController: UIViewController {
     @IBOutlet weak var tableview: UITableView!
     private let _productCellId = "productCell"
+    private let _notationCellId = "notationCell"
     private let _coreDataService = CoreDataHelper()
     var consumes: [Consume]?
 }
@@ -23,28 +24,46 @@ class ListOfProductController: UIViewController {
 //-----------------------------------------
 extension ListOfProductController: UITableViewDataSource, UITableViewDelegate {
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let count = consumes?.count,  count > 0 {
-            return count
+    func numberOfSections(in tableView: UITableView) -> Int {
+
+        guard let consumes = consumes, !consumes.isEmpty else {
+            navigationController?.popViewController(animated: true)
+            self.dismiss(animated: true)
+            return 0
         }
-        navigationController?.popViewController(animated: true)
-        self.dismiss(animated: true)
-        return 0
+        return 2
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //Create cell
-        let cell = tableView.dequeueReusableCell(withIdentifier: _productCellId, for: indexPath) as! ProductCell
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        //Get product a index
-        if let consume = consumes?[indexPath.row] {
-            if let product = consume.product {
-                cell.setupProductWithConsommation(product: product, quantityConsumed: Int(consume.quantity))
-                return cell
+        if section == 0 {
+            if let count = consumes?.count,  count > 0 {
+                return count
             }
         }
 
-        return UITableViewCell()
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        if indexPath.section == 0 {
+            //Create cell
+            let cell = tableView.dequeueReusableCell(withIdentifier: _productCellId, for: indexPath) as! ProductCell
+
+            //Get product a index
+            if let consume = consumes?[indexPath.row] {
+                if let product = consume.product {
+                    cell.setupProductWithConsommation(product: product, quantityConsumed: Int(consume.quantity))
+                    return cell
+                }
+            }
+            return UITableViewCell()
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: _notationCellId, for: indexPath) as! NotationCell
+            return cell
+        }
+
     }
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -56,5 +75,18 @@ extension ListOfProductController: UITableViewDataSource, UITableViewDelegate {
             }
         }
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            if let consume = self.consumes?[indexPath.row], let product = consume.product {
+                SHOW_PRODUCT_PAGE(product: product, controller: self)
+            }
+        } else {
+            performSegue(withIdentifier: "notationDetail", sender: nil)
+        }
+
+    }
+
+    
 
 }

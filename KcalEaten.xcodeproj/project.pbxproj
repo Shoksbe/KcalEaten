@@ -37,6 +37,7 @@
 		378DCB95224134D2008C835C /* ConsumeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378DCB94224134D2008C835C /* ConsumeController.swift */; };
 		378E3DED223A43FA005CB0D6 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E3DEC223A43FA005CB0D6 /* CoreDataHelper.swift */; };
 		378E79B1223AE5BC00A41E11 /* CoreDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E79B0223AE5BC00A41E11 /* CoreDataTest.swift */; };
+		37D14DC72258A5C4008CF180 /* NotationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D14DC62258A5C4008CF180 /* NotationCell.swift */; };
 		37DA929F223D85C000F3DFED /* BarCodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DA929E223D85C000F3DFED /* BarCodeController.swift */; };
 		37DA92A1223D868E00F3DFED /* ScannerPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DA92A0223D868E00F3DFED /* ScannerPageController.swift */; };
 		37EF2756223FE90E0045CD53 /* FavoriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EF2755223FE90E0045CD53 /* FavoriteController.swift */; };
@@ -88,6 +89,7 @@
 		378DCB94224134D2008C835C /* ConsumeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumeController.swift; sourceTree = "<group>"; };
 		378E3DEC223A43FA005CB0D6 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		378E79B0223AE5BC00A41E11 /* CoreDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTest.swift; sourceTree = "<group>"; };
+		37D14DC62258A5C4008CF180 /* NotationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotationCell.swift; sourceTree = "<group>"; };
 		37DA929E223D85C000F3DFED /* BarCodeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCodeController.swift; sourceTree = "<group>"; };
 		37DA92A0223D868E00F3DFED /* ScannerPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerPageController.swift; sourceTree = "<group>"; };
 		37EF2755223FE90E0045CD53 /* FavoriteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteController.swift; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 			children = (
 				376613D42242AB3100DA35E6 /* ConsumeCell.swift */,
 				37EF2759223FF4380045CD53 /* ProductCell.swift */,
+				37D14DC62258A5C4008CF180 /* NotationCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3762F7152238FB2C000CED15 /* CustomError.swift in Sources */,
+				37D14DC72258A5C4008CF180 /* NotationCell.swift in Sources */,
 				3727365A223E45A0003483FD /* AddConsommationPopUp.swift in Sources */,
 				3762F6D92237E39D000CED15 /* AppDelegate.swift in Sources */,
 				37DA929F223D85C000F3DFED /* BarCodeController.swift in Sources */,

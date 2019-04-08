@@ -14,6 +14,7 @@ import UIKit
 class FavoriteController: UIViewController {
     private let _coreDataService = CoreDataHelper()
     private let _productCellId = "productCell"
+    private let _notationCellId = "notationCell"
     private var _products: [ProductObject]?
 
     @IBOutlet weak var tableview: UITableView!
@@ -34,6 +35,12 @@ extension FavoriteController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateFavoriteTableview()
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 }
 //------------------------
@@ -43,13 +50,15 @@ extension FavoriteController {
 
     /// Get new favorite from database and reload tableview
     @objc func updateFavoriteTableview() {
-        guard let products = try? _coreDataService.fetchFavorite(), !products.isEmpty else {
+        if let products = try? _coreDataService.fetchFavorite(), !products.isEmpty {
+            titleView.isHidden = false
+            _products = products
+        } else {
             titleView.isHidden = true
-            return
+            _products = nil
         }
-        self._products = products
+
         tableview.reloadData()
-        titleView.isHidden = false
     }
 }
 
@@ -60,41 +69,59 @@ extension FavoriteController {
 extension FavoriteController: UITableViewDataSource, UITableViewDelegate {
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        if _products != nil {
+            return 2
+        } else {
+            tableView.isScrollEnabled = false
+            return 1
+        }
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let count = _products?.count, count > 0 {
-            return count
+        guard let count = _products?.count, count > 0 else {
+            return 0
         }
-        tableView.isScrollEnabled = false
-        return 0
+
+        if section == 0 {
+            return count
+        } else {
+            return 1
+        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //Create cell
-        let cell = tableView.dequeueReusableCell(withIdentifier: _productCellId, for: indexPath) as! ProductCell
 
-        //Get product a index
-        if let product = _products?[indexPath.row] {
-            cell.setupProductWithConsommation(product: product)
+        if indexPath.section == 0 {
+            //Create cell
+            let cell = tableView.dequeueReusableCell(withIdentifier: _productCellId, for: indexPath) as! ProductCell
+
+            //Get product a index
+            if let product = _products?[indexPath.row] {
+                cell.setupProductWithConsommation(product: product)
+            }
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: _notationCellId, for: indexPath) as! NotationCell
+            return cell
         }
-
-        return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let product = self._products?[indexPath.row] {
-            SHOW_PRODUCT_PAGE(product: product, controller: self)
+        if indexPath.section == 0 {
+            if let product = self._products?[indexPath.row] {
+                SHOW_PRODUCT_PAGE(product: product, controller: self)
+            }
+        } else {
+            performSegue(withIdentifier: "notationDetail", sender: nil)
         }
+
     }
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             if let product = _products?[indexPath.row] {
                 try? _coreDataService.removeFavorite(from: product)
-                _products = try? _coreDataService.fetchFavorite()
-                tableview.reloadData()
+                updateFavoriteTableview()
             }
         }
     }
@@ -104,8 +131,9 @@ extension FavoriteController: UITableViewDataSource, UITableViewDelegate {
         let container = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
 
         //Setup imageView
+        let titleHeight = titleView.frame.height
         let imageViewWidthAndHeigth: CGFloat = container.frame.width * 0.5
-        let imageView = UIImageView(frame: CGRect(x: imageViewWidthAndHeigth / 2, y: (container.frame.height / 2) - imageViewWidthAndHeigth, width: imageViewWidthAndHeigth, height: imageViewWidthAndHeigth))
+        let imageView = UIImageView(frame: CGRect(x: imageViewWidthAndHeigth / 2, y: (container.frame.height / 2) - imageViewWidthAndHeigth - titleHeight, width: imageViewWidthAndHeigth, height: imageViewWidthAndHeigth))
         imageView.contentMode = .scaleAspectFit
         imageView.image = #imageLiteral(resourceName: "NoFavorite")
 
