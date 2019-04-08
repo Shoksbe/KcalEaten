@@ -14,6 +14,7 @@ extension Date {
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .none
         dateFormatter.locale = LOCAL
+        dateFormatter.timeZone = TimeZone(abbreviation: "GMT+0:00")
         return dateFormatter.string(from: self)
     }
 }
@@ -23,6 +24,7 @@ extension String {
         let formatter = DateFormatter()
         formatter.dateFormat = DATE_FORMAT
         formatter.locale = LOCAL
+        formatter.timeZone = TimeZone(abbreviation: "GMT+0:00")
         return formatter.date(from: self) ?? Date()
     }
 }

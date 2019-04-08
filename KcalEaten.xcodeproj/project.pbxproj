@@ -38,6 +38,7 @@
 		378E3DED223A43FA005CB0D6 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E3DEC223A43FA005CB0D6 /* CoreDataHelper.swift */; };
 		378E79B1223AE5BC00A41E11 /* CoreDataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378E79B0223AE5BC00A41E11 /* CoreDataTest.swift */; };
 		37D14DC72258A5C4008CF180 /* NotationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D14DC62258A5C4008CF180 /* NotationCell.swift */; };
+		37D14DC9225B16BA008CF180 /* ExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D14DC8225B16BA008CF180 /* ExtensionTest.swift */; };
 		37DA929F223D85C000F3DFED /* BarCodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DA929E223D85C000F3DFED /* BarCodeController.swift */; };
 		37DA92A1223D868E00F3DFED /* ScannerPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DA92A0223D868E00F3DFED /* ScannerPageController.swift */; };
 		37EF2756223FE90E0045CD53 /* FavoriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EF2755223FE90E0045CD53 /* FavoriteController.swift */; };
@@ -90,6 +91,7 @@
 		378E3DEC223A43FA005CB0D6 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		378E79B0223AE5BC00A41E11 /* CoreDataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTest.swift; sourceTree = "<group>"; };
 		37D14DC62258A5C4008CF180 /* NotationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotationCell.swift; sourceTree = "<group>"; };
+		37D14DC8225B16BA008CF180 /* ExtensionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionTest.swift; sourceTree = "<group>"; };
 		37DA929E223D85C000F3DFED /* BarCodeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCodeController.swift; sourceTree = "<group>"; };
 		37DA92A0223D868E00F3DFED /* ScannerPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerPageController.swift; sourceTree = "<group>"; };
 		37EF2755223FE90E0045CD53 /* FavoriteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteController.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				3762F70B2238ECC3000CED15 /* OpenFoodFactServiceTest.swift */,
 				3762F7132238F596000CED15 /* Helpers */,
 				378E79B0223AE5BC00A41E11 /* CoreDataTest.swift */,
+				37D14DC8225B16BA008CF180 /* ExtensionTest.swift */,
 			);
 			path = KcalEatenTests;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37D14DC9225B16BA008CF180 /* ExtensionTest.swift in Sources */,
 				378E79B1223AE5BC00A41E11 /* CoreDataTest.swift in Sources */,
 				3762F70C2238ECC3000CED15 /* OpenFoodFactServiceTest.swift in Sources */,
 				3762F7102238ED72000CED15 /* FakeResponseData.swift in Sources */,
