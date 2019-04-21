@@ -108,7 +108,6 @@ extension CameraController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        CoreDataHelper().flushDatabase()
         showDefaultImage(false)
         configureSession()
         NotificationCenter.default.addObserver(self, selector: #selector(launchCaptureSession), name: .popupWillDisappear, object: nil)

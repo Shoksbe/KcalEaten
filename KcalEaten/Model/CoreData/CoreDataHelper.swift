@@ -21,21 +21,6 @@ class CoreDataHelper {
     //------------------------
 
 
-    /// Flush database
-    func flushDatabase() {
-        let productss = try? fetchAllProduct()
-        productss?.forEach({ (product) in
-            _context.delete(product)
-            try? _context.save()
-        })
-
-        let consumes = try? fetchConsume()
-        consumes?.forEach({ (consume) in
-            _context.delete(consume)
-            try? _context.save()
-        })
-    }
-
     /// Get all product
     ///
     /// - Parameter viewContext: Context
